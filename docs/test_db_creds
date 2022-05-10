@@ -1,0 +1,22 @@
+test_db_creds
+usr: postgres
+pass: 123
+db: pcdb_test
+
+
+postgre shell:
+psql -U postgres -h 127.0.0.1
+
+
+delete db:
+DROP DATABASE pcdb_test;
+create db:
+CREATE DATABASE pcdb_test;
+run sql file:
+psql postgres -h 127.0.0.1 -d pcdb_test -f pcdb.sql
+
+
+sudo service postgresql stop
+sudo service postgresql start
+
+stop start connections, useful to close connections

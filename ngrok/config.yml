@@ -1,0 +1,11 @@
+region: eu
+authtoken: <authtoken>
+tunnels:
+  server:
+    bind-tls: false
+    proto: http
+    addr: 5000
+  client:
+    bind-tls: false
+    proto: http
+    addr: 8080

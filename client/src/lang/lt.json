@@ -1,0 +1,199 @@
+{
+  "components": {
+    "builds": {
+      "build": {
+        "select": "Pasirinkti",
+        "processorName": "Procesorius",
+        "graphicsCardName": "Vaizdo plokštė",
+        "motherboardName": "Motininė plokštė",
+        "driveName": "Diskas",
+        "powerSupplyName": "Maitinimo blokas",
+        "randomAccessMemoryName": "Operatyvioji atmintis"
+      }
+    },
+    "common": {
+      "FilterSideBar": {
+        "title": "Filtrai",
+        "applyFilters": "Naudoti filtrus",
+        "clearFilters": "Išvalyti filtrus"
+      },
+      "multiSelect": {
+        "selectedLabel": "Pasirinktas",
+        "selectLabel": "'Enter' - pasirinkti",
+        "deselectLabel": "'Enter' - išvalyti lauką"
+      },
+      "filters": {
+        "processor_id": "Procesorius",
+        "graphics_card_id": "Vaizdo plokštė",
+        "motherboard_id": "Motininė plokštė",
+        "power_supply_id": "Maitinimo blokas",
+        "random_access_memory_id": "Operatyvioji atmintis",
+        "drive_id": "Diskas",
+        "brand_id": "Gamintojas",
+        "series_id": "Serija",
+        "socket_id": "Jungtis",
+        "number_of_cores": "Branduoliai",
+        "number_of_threads": "Gijos",
+        "memory_type_id": "Atminties tipas",
+        "max_memory_supported": "Maksimali palaikoma atmintis",
+        "max_memory_speed": "Maksimalus atminties greitis",
+        "operating_frequency_mhz": "Procesoriaus dažnis",
+        "turbo_frequency_mhz": "Procesoriaus turbo dažnis",
+        "thermal_design_power_w": "Reikalinga galia (W)",
+        "cooling_device_included": "Su aušintuvu",
+        "integrated_graphics_id": "Integruota vaizdo plokštė",
+        "chipset_manufacturer_id": "Lusto gamintojas",
+        "memory_size_gb": "Atminties kiekis",
+        "slot_width": "ilgis",
+        "interface_id": "Sąsaja",
+        "drive_type_id": "Disko tipas",
+        "form_factor_id": "Forma",
+        "capacity_gb": "Talpa (gb)",
+        "max_read_mb_s": "Skaitymo greitis (mb)",
+        "max_write_mb_s": "Įrašymo greitis (mb)",
+        "chipset_id": "Lustas",
+        "form_factor_id": "Forma",
+        "memory_slots": "Atminties jungtys",
+        "timing": "Timing",
+        "cas_latency": "Atminties ciklo uždelsimas",
+        "voltage": "Įtampa",
+        "transfer_rate_mb": "Perkelimo greitis (mb)",
+        "speed": "Greitis",
+        "modules": "Moduliai",
+        "module_capacity_gb": "Modulio talpa (gb)",
+        "total_capacity_gb": "Visų modulių talpa (gb)",
+        "max_power_w": "Maksimali galia (W)",
+        "energy_efficiency_id": "Energijos efektyvumas",
+        "modularity_id": "Moduliarumas"
+      },
+      "navBar": {
+        "domainName": "Pcdb.lt",
+        "home": "Pradžia",
+        "recommendationSystem": "Rekomendacijos sistema",
+        "api": "API",
+        "about": "Apie",
+        "contacts": "Kontaktai"
+      }
+    },
+    "parts": {
+      "drive": {
+        "name": "Diskas",
+        "notSelected": "Nepasirinkta",
+        "remove": "Šalinti"
+      },
+      "graphicsCard": {
+        "name": "Vaizdo plokštė",
+        "notSelected": "Nepasirinkta",
+        "remove": "Šalinti"
+      },
+      "motherboard": {
+        "name": "Vaizdo plokštė",
+        "notSelected": "Nepasirinkta",
+        "remove": "Šalinti"
+      },
+      "powerSupply": {
+        "name": "Maitinimo blokas",
+        "notSelected": "Nepasirinkta",
+        "remove": "Šalinti"
+      },
+      "processor": {
+        "name": "Procesorius",
+        "notSelected": "Nepasirinkta",
+        "remove": "Šalinti"
+      },
+      "randomAccessMemory": {
+        "name":   "Operatyvioji atmintis",
+        "notSelected": "Nepasirinkta",
+        "remove": "Šalinti"
+      },
+      "partSelectBar": {
+        "processors": "Procesorius",
+        "graphics_cards": "Vaizdo plokštės",
+        "drives": "Diskai",
+        "motherboards": "Motininės plokštės",
+        "random_access_memory": "Operatyvioji atmintis",
+        "power_supplies": "Maitinimo blokai"
+      }
+    },
+    "products": {
+      "drive": {
+        "select": "Pasirinkti",
+        "description": {
+          "model": "Modelis",
+          "series": "Serija",
+          "formFactor": "Dydis (coliai)",
+          "capacity": "Talpa (GB)",
+          "readSpeed": "Skaitymo greitis mb/s",
+          "writeSpeed": "Įrašymo greitis mb/s",
+          "pricesLabel": "Kainos"
+        }
+      },
+      "graphicsCard": {
+        "select": "Pasirinkti",
+        "description": {
+          "name": "Pavadinimas",
+          "model": "Modelis",
+          "memoryType": "Atminties tipas",
+          "memorySize": "Atminties kiekis (GB)",
+          "pricesLabel": "Kainos"
+        }
+      },
+      "motherboard": {
+        "select": "Pasirinkti",
+        "description": {
+          "model": "Modelis",
+          "socket": "Jungtis",
+          "pricesLabel": "Kainos"
+        }
+      },
+      "powerSupply": {
+        "select": "Pasirinkti",
+        "description": {
+          "model": "Modelis",
+          "maxPower": "Galia (W)",
+          "energyEfficiency": "Energijos efektyvumas",
+          "modularity": "Moduliarumas",
+          "pricesLabel": "Kainos"
+        }
+      },
+      "processor": {
+        "select": "Pasirinkti",
+        "description": {
+          "name": "Pavadinimas",
+          "series": "Serija",
+          "socket": "Jungtis",
+          "memoryType": "Palaikomi atminties tipai",
+          "maxMemorySupported": "Maksimali palaikoma atmintis (GB)",
+          "integratedGraphicsCard": "Integruota vaizdo plokštė",
+          "operatingFrequency": "Procesoriaus dažnis (Ghz)",
+          "turboFrequency": "Procesoriaus turbo dažnis (Ghz)",
+          "numberOfCores": "Branduoliai",
+          "numberOfThreads": "Gijos",
+          "pricesLabel": "Kainos"
+        }
+      },
+      "randomAccessMemory": {
+        "select": "Pasirinkti",
+        "description": {
+          "model": "Modelis",
+          "memoryType": "Atminties tipas",
+          "casLatency": "Atminties ciklo uždelsimas",
+          "voltage": "Įtampa",
+          "modules": "Moduliai",
+          "speed": "Greitis",
+          "moduleCapacity": "Modulio talpa (GB)",
+          "capacity": "Talpa (GB)",
+          "pricesLabel": "Kainos"
+        }
+      },
+      "recommendedProduct": {
+        "select": "Pasirinkti",
+        "description": {
+          "name": "Pavadinimas",
+          "model": "Modelis",
+          "pricesLabel": "Kainos"
+        }
+      }
+    }
+  }
+}
