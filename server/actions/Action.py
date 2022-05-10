@@ -1,7 +1,7 @@
 class Action:
     def __init__(self):
-        self._name = 'Base action'
-        self._descripption = 'Base class for actions'
+        self._name = "Base action"
+        self._descripption = "Base class for actions"
 
     @property
     def name(self):
