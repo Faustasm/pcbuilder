@@ -1,5 +1,4 @@
 # server
-## Script to load csv data to a postgres database from a directory recursively.
 
 ### Dependencies
 1. Python3
