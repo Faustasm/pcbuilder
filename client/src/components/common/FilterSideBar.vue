@@ -1,17 +1,11 @@
 <template>
   <div class="w3-col">
     <div class="w3-container w3-bar w3-center w3-black">
-      <h3>
-        {{$t('components.common.FilterSideBar.title')}}:
-      </h3>
+      <h3>{{ $t('components.common.FilterSideBar.title') }}:</h3>
     </div>
     <div class="w3-card-4">
-      <slot name="componentSelectBar"/>
-      <div
-        ckass="w3-row"
-        v-for="filter in filters"
-        :key="filter.filter_name"
-      >
+      <slot name="componentSelectBar" />
+      <div ckass="w3-row" v-for="filter in filters" :key="filter.filter_name">
         <multiselect
           :options="filter.values"
           track-by="id"
@@ -23,25 +17,22 @@
           :placeholder="$t(`components.common.filters.${filter.filter_name}`)"
         />
       </div>
-      <div
-        @click="applyFilters()"
-        class="w3-button w3-black w3-bar"
-      >
-        {{$t('components.common.FilterSideBar.applyFilters')}}
+      <div @click="applyFilters()" class="w3-button w3-black w3-bar">
+        {{ $t('components.common.FilterSideBar.applyFilters') }}
       </div>
       <div
         @click="clearFilters()"
         class="w3-button w3-bar w3-win8-crimson"
         style="background-color: #a20025; color: white;"
       >
-        {{$t('components.common.FilterSideBar.clearFilters')}}
+        {{ $t('components.common.FilterSideBar.clearFilters') }}
       </div>
     </div>
     <div @click="changeLanguage('lt')">
-      <country-flag country='lt' size='normal'/>
+      <country-flag country="lt" size="normal" />
     </div>
     <div @click="changeLanguage('gb')">
-      <country-flag country='gb' size='normal'/>
+      <country-flag country="gb" size="normal" />
     </div>
   </div>
 </template>
@@ -60,19 +51,19 @@ export default {
       selectedFilters: {}
     }
   },
-  computed:{
+  computed: {
     filters: () => store.state.filters,
     selectedPart: () => store.state.selectedPart,
-    filterPayload: function() {
+    filterPayload: function () {
       let filterPayload = {}
       for (const filter in this.selectedFilters) {
         filterPayload[filter] = this.selectedFilters[filter].id
       }
       return filterPayload
     }
-   },
+  },
   methods: {
-    applyFilters: function() {
+    applyFilters: function () {
       let payload = {
         filters: this.filterPayload
       }
@@ -83,11 +74,11 @@ export default {
         this.$store.dispatch('loadBuilds', payload)
       }
     },
-    clearFilters: function() {
+    clearFilters: function () {
       this.selectedFilters = {}
       this.applyFilters()
     },
-    changeLanguage: function(locale) {
+    changeLanguage: function (locale) {
       console.log('I get called')
       this.$root.$i18n.locale = locale
     }
@@ -97,8 +88,12 @@ export default {
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style>
-  .w3-win8-crimson
-  {color:#fff;background-color:#a20025}
-  .w3-2019-bluestone
-  {color:#fff;background-color:#577284}
+.w3-win8-crimson {
+  color: #fff;
+  background-color: #a20025;
+}
+.w3-2019-bluestone {
+  color: #fff;
+  background-color: #577284;
+}
 </style>

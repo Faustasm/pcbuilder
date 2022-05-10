@@ -1,9 +1,16 @@
 <template>
   <div class="w3-row">
-    <div class="w3-col s12 m2 l2 w3-center w3-win8-crimson" style="height:130px">
-      <img class="w3-margin-top" src="../../assets/navbar_icons/pc-tower.svg" height="50">
+    <div
+      class="w3-col s12 m2 l2 w3-center w3-win8-crimson"
+      style="height:130px"
+    >
+      <img
+        class="w3-margin-top"
+        src="../../assets/navbar_icons/pc-tower.svg"
+        height="50"
+      />
       <h2 class="w3-text-black">
-        {{$t('components.common.navBar.domainName')}}
+        {{ $t('components.common.navBar.domainName') }}
       </h2>
     </div>
     <router-link to="/">
@@ -14,9 +21,13 @@
         @mouseenter="addClass"
         @mouseleave="removeClass"
       >
-        <img class="w3-margin-top" src="../../assets/navbar_icons/tools.svg" height="50">
+        <img
+          class="w3-margin-top"
+          src="../../assets/navbar_icons/tools.svg"
+          height="50"
+        />
         <p class="w3-text-white">
-          {{$t('components.common.navBar.home')}}
+          {{ $t('components.common.navBar.home') }}
         </p>
       </div>
     </router-link>
@@ -28,9 +39,13 @@
         @mouseenter="addClass"
         @mouseleave="removeClass"
       >
-        <img class="w3-margin-top" src="../../assets/navbar_icons/rec.svg" height="50">
+        <img
+          class="w3-margin-top"
+          src="../../assets/navbar_icons/rec.svg"
+          height="50"
+        />
         <p class="w3-text-white">
-          {{$t('components.common.navBar.recommendationSystem')}}
+          {{ $t('components.common.navBar.recommendationSystem') }}
         </p>
       </div>
     </router-link>
@@ -42,9 +57,13 @@
         @mouseenter="addClass"
         @mouseleave="removeClass"
       >
-        <img class="w3-margin-top" src="../../assets/navbar_icons/api.svg" height="50">
+        <img
+          class="w3-margin-top"
+          src="../../assets/navbar_icons/api.svg"
+          height="50"
+        />
         <p class="w3-text-white">
-          {{$t('components.common.navBar.api')}}
+          {{ $t('components.common.navBar.api') }}
         </p>
       </div>
     </router-link>
@@ -56,9 +75,13 @@
         @mouseenter="addClass"
         @mouseleave="removeClass"
       >
-        <img class="w3-margin-top" src="../../assets/navbar_icons/information.svg" height="50">
+        <img
+          class="w3-margin-top"
+          src="../../assets/navbar_icons/information.svg"
+          height="50"
+        />
         <p class="w3-text-white">
-          {{$t('components.common.navBar.about')}}
+          {{ $t('components.common.navBar.about') }}
         </p>
       </div>
     </router-link>
@@ -70,9 +93,13 @@
         @mouseenter="addClass"
         @mouseleave="removeClass"
       >
-        <img class="w3-margin-top" src="../../assets/navbar_icons/mail.svg" height="50">
+        <img
+          class="w3-margin-top"
+          src="../../assets/navbar_icons/mail.svg"
+          height="50"
+        />
         <p class="w3-text-white">
-          {{$t('components.common.navBar.contacts')}}
+          {{ $t('components.common.navBar.contacts') }}
         </p>
       </div>
     </router-link>
@@ -89,12 +116,12 @@ export default {
   },
   methods: {
     addClass: function (e) {
-      e.target.classList.remove("w3-black");
-      e.target.classList.add("w3-win8-crimson");
+      e.target.classList.remove('w3-black')
+      e.target.classList.add('w3-win8-crimson')
     },
     removeClass: function (e) {
-      e.target.classList.remove("w3-win8-crimson");
-      e.target.classList.add("w3-black");
+      e.target.classList.remove('w3-win8-crimson')
+      e.target.classList.add('w3-black')
     },
     setActiveTab: function (tab) {
       this.activeTab = tab
@@ -104,8 +131,8 @@ export default {
 </script>
 
 <style>
-  .w3-win8-crimson {
-    color:#fff;
-    background-color:#a20025
-  }
+.w3-win8-crimson {
+  color: #fff;
+  background-color: #a20025;
+}
 </style>

@@ -2,15 +2,15 @@
   <div>
     <div class="w3-row">
       <div class="w3-col s12 m12 l2">
-        <PartSideBar/>
+        <PartSideBar />
       </div>
       <div class="w3-col s12 m12 l8">
-        <PartTable/>
+        <PartTable />
       </div>
       <div class="w3-col s12 m12 l2">
         <FilterSideBar ref="filterSideBar">
           <template v-slot:componentSelectBar>
-            <PartSelectBar @changed="this.$refs.filterSideBar.clearFilters()"/>
+            <PartSelectBar @changed="this.$refs.filterSideBar.clearFilters()" />
           </template>
         </FilterSideBar>
       </div>
@@ -33,7 +33,7 @@ export default {
   },
   mounted () {
     let initialPayload = {
-      'selectedPart': 'processors'
+      selectedPart: 'processors'
     }
     this.$store.dispatch('loadParts', initialPayload)
   }

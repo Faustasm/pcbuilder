@@ -32,4 +32,4 @@ const routes = [
   }
 ]
 
-export default routes;
+export default routes

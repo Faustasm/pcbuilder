@@ -2,10 +2,9 @@
   <div>
     <div class="w3-row">
       <div class="w3-col s12 m12 l2">
-        <PartSideBar/>
+        <PartSideBar />
       </div>
-      <div class="w3-col s12 m12 l8">
-      </div>
+      <div class="w3-col s12 m12 l8"></div>
     </div>
   </div>
 </template>

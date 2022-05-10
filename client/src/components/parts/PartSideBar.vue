@@ -2,87 +2,113 @@
   <div class="w3-container">
     <div class="w3-panel w3-bottombar">
       <div class="w3-row w3-center" v-if="showPsuCalculations">
-          <div class="w3-quarter">
-            <img class="w3-margin-top" src="../../assets/parts/supply.svg" height="30">
+        <div class="w3-quarter">
+          <img
+            class="w3-margin-top"
+            src="../../assets/parts/supply.svg"
+            height="30"
+          />
+        </div>
+        <div class="w3-threequarter">
+          <div class="w3-third">
+            <p>{{ requiredPower }}/{{ selectedPowerSupply.max_power_w }}</p>
           </div>
-          <div class="w3-threequarter">
-            <div class="w3-third">
-              <p>
-                {{requiredPower}}/{{selectedPowerSupply.max_power_w}}
-              </p>
-            </div>
-            <div class="w3-twothird">
-              <img class="w3-margin-top" src="../../assets/lighting.svg" height="30">
-            </div>
+          <div class="w3-twothird">
+            <img
+              class="w3-margin-top"
+              src="../../assets/lighting.svg"
+              height="30"
+            />
           </div>
+        </div>
       </div>
     </div>
     <div class="w3-panel w3-green" v-if="showOkMessage">
-      <img
-         class="w3-margin-top"
-         src="../../assets/thumbs_up.svg"
-         height="50"
-     />
+      <img class="w3-margin-top" src="../../assets/thumbs_up.svg" height="50" />
       <p>
-        {{$t('components.parts.partSideBar.okMessage')}}
+        {{ $t('components.parts.partSideBar.okMessage') }}
       </p>
-  </div>
+    </div>
     <div class="w3-panel w3-red" v-if="showCpuSocketeMissmatchMessage">
       <h2>
-        {{$t('components.parts.partSideBar.attentionHeader')}}
+        {{ $t('components.parts.partSideBar.attentionHeader') }}
       </h2>
       <p>
-        {{$t('components.parts.partSideBar.cpuSocketMismatchMessage')}}
+        {{ $t('components.parts.partSideBar.cpuSocketMismatchMessage') }}
       </p>
     </div>
-    <div class="w3-panel w3-red" v-if="showCpuRandomAccessMemoryMismatchMessage">
+    <div
+      class="w3-panel w3-red"
+      v-if="showCpuRandomAccessMemoryMismatchMessage"
+    >
       <h2>
-        {{$t('components.parts.partSideBar.attentionHeader')}}
+        {{ $t('components.parts.partSideBar.attentionHeader') }}
       </h2>
       <p>
-        {{$t('components.parts.partSideBar.cpuRandomAccessMemoryMismatchMessage')}}
+        {{
+          $t(
+            'components.parts.partSideBar.cpuRandomAccessMemoryMismatchMessage'
+          )
+        }}
       </p>
     </div>
-    <div class="w3-panel w3-red" v-if="showCpuRandomAccessMemoryCapacityMessage">
+    <div
+      class="w3-panel w3-red"
+      v-if="showCpuRandomAccessMemoryCapacityMessage"
+    >
       <h2>
-        {{$t('components.parts.partSideBar.attentionHeader')}}
+        {{ $t('components.parts.partSideBar.attentionHeader') }}
       </h2>
       <p>
-        {{$t('components.parts.partSideBar.cpuRandomAccessMemoryCapacityMessage')}}
+        {{
+          $t(
+            'components.parts.partSideBar.cpuRandomAccessMemoryCapacityMessage'
+          )
+        }}
       </p>
     </div>
     <div class="w3-panel w3-red" v-if="showMbRandomAccessMemoryMismatchMessage">
       <h2>
-        {{$t('components.parts.partSideBar.attentionHeader')}}
+        {{ $t('components.parts.partSideBar.attentionHeader') }}
       </h2>
-      <p>{{$t('components.parts.partSideBar.mbRandomAccessMemoryMismatchMessage')}}</p>
+      <p>
+        {{
+          $t('components.parts.partSideBar.mbRandomAccessMemoryMismatchMessage')
+        }}
+      </p>
     </div>
     <div class="w3-panel w3-red" v-if="showMbRandomAccessMemoryCapacityMessage">
       <h2>
-        {{$t('components.parts.partSideBar.attentionHeader')}}
+        {{ $t('components.parts.partSideBar.attentionHeader') }}
       </h2>
       <p>
-        {{$t('components.parts.partSideBar.mbRandomAccessMemoryCapacityMessage')}}
+        {{
+          $t('components.parts.partSideBar.mbRandomAccessMemoryCapacityMessage')
+        }}
       </p>
     </div>
     <div class="w3-panel w3-yellow" v-if="showRamDualChannelWarningMessage">
       <h2>
-        {{$t('components.parts.partSideBar.warningHeader')}}
+        {{ $t('components.parts.partSideBar.warningHeader') }}
       </h2>
       <p>
-        {{$t('components.parts.partSideBar.ramDualChannelWarningMessage')}}
+        {{ $t('components.parts.partSideBar.ramDualChannelWarningMessage') }}
       </p>
     </div>
-    <div class="w3-button w3-block w3-orange" v-if="showOkMessage && showPsuCalculations" @click="generateUrl">
-      {{$t('components.parts.partSideBar.generateUrl')}}
+    <div
+      class="w3-button w3-block w3-orange"
+      v-if="showOkMessage && showPsuCalculations"
+      @click="generateUrl"
+    >
+      {{ $t('components.parts.partSideBar.generateUrl') }}
     </div>
     <div class="w3-margin-top">
-      <Processor/>
-      <GraphicsCard/>
-      <Motherboard/>
-      <PowerSupply/>
-      <RandomAccessMemory/>
-      <Drive/>
+      <Processor />
+      <GraphicsCard />
+      <Motherboard />
+      <PowerSupply />
+      <RandomAccessMemory />
+      <Drive />
     </div>
   </div>
 </template>
@@ -105,14 +131,14 @@ export default {
     PowerSupply,
     Drive
   },
-  data() {
+  data () {
     return {
-      cpu: "",
-      gpu: "",
-      mb: "",
-      psu: "",
-      ram: "",
-      drive: ""
+      cpu: '',
+      gpu: '',
+      mb: '',
+      psu: '',
+      ram: '',
+      drive: ''
     }
   },
   mounted () {
@@ -120,8 +146,8 @@ export default {
     if (cpu_id) {
       this.cpu = this.$route.query.cpu
       let payload = {
-        'selectedPart': 'processors',
-        'filters': {'id': cpu_id}
+        selectedPart: 'processors',
+        filters: { id: cpu_id }
       }
       this.$store.dispatch('loadParts', payload)
     }
@@ -129,8 +155,8 @@ export default {
     if (gpu_id) {
       this.gpu = this.$route.query.gpu
       let payload = {
-        'selectedPart': 'graphics_cards',
-        'filters': {'id': gpu_id}
+        selectedPart: 'graphics_cards',
+        filters: { id: gpu_id }
       }
       this.$store.dispatch('loadParts', payload)
     }
@@ -138,8 +164,8 @@ export default {
     if (mb_id) {
       this.mb = this.$route.query.mb
       let payload = {
-        'selectedPart': 'motherboards',
-        'filters': {'id': mb_id}
+        selectedPart: 'motherboards',
+        filters: { id: mb_id }
       }
       this.$store.dispatch('loadParts', payload)
     }
@@ -147,8 +173,8 @@ export default {
     if (psu_id) {
       this.psu = this.$route.query.psu
       let payload = {
-        'selectedPart': 'power_supplies',
-        'filters': {'id': psu_id}
+        selectedPart: 'power_supplies',
+        filters: { id: psu_id }
       }
       this.$store.dispatch('loadParts', payload)
     }
@@ -156,8 +182,8 @@ export default {
     if (ram_id) {
       this.ram = this.$route.query.ram
       let payload = {
-        'selectedPart': 'random_access_memory',
-        'filters': {'id': ram_id}
+        selectedPart: 'random_access_memory',
+        filters: { id: ram_id }
       }
       this.$store.dispatch('loadParts', payload)
     }
@@ -165,8 +191,8 @@ export default {
     if (drive_id) {
       this.drive = this.$route.query.drive
       let payload = {
-        'selectedPart': 'drives',
-        'filters': {'id': drive_id}
+        selectedPart: 'drives',
+        filters: { id: drive_id }
       }
       this.$store.dispatch('loadParts', payload)
     }
@@ -183,7 +209,10 @@ export default {
       if (this.selectedMotherboard && this.selectedMotherboard.id) {
         baseUrl += `&mb=${this.selectedMotherboard.id}`
       }
-      if (this.selectedRandomAccessMemory && this.selectedRandomAccessMemory.id) {
+      if (
+        this.selectedRandomAccessMemory &&
+        this.selectedRandomAccessMemory.id
+      ) {
         baseUrl += `&ram=${this.selectedRandomAccessMemory.id}`
       }
       if (this.selectedDrive && this.selectedDrive.id) {
@@ -193,12 +222,12 @@ export default {
         baseUrl += `&psu=${this.selectedPowerSupply.id}`
       }
       let payload = {
-          processor_id: this.selectedProcessor.id,
-          graphics_card_id: this.selectedGraphicsCard.id,
-          motherboard_id: this.selectedMotherboard.id,
-          drive_id: this.selectedDrive.id,
-          random_access_memory_id: this.selectedRandomAccessMemory.id,
-          power_supply_id: this.selectedPowerSupply.id
+        processor_id: this.selectedProcessor.id,
+        graphics_card_id: this.selectedGraphicsCard.id,
+        motherboard_id: this.selectedMotherboard.id,
+        drive_id: this.selectedDrive.id,
+        random_access_memory_id: this.selectedRandomAccessMemory.id,
+        power_supply_id: this.selectedPowerSupply.id
       }
       this.$store.dispatch('createBuild', payload)
       navigator.clipboard.writeText(baseUrl)
@@ -213,37 +242,63 @@ export default {
     selectedRandomAccessMemory: () => store.state.selectedRandomAccessMemory,
     selectedPowerSupply: () => store.state.selectedPowerSupply,
     selectedDrive: () => store.state.selectedDrive,
-    showCpuSocketeMissmatchMessage: function() {
+    showCpuSocketeMissmatchMessage: function () {
       if (this.selectedProcessor.sockets && this.selectedMotherboard.sockets) {
-        return this.selectedProcessor.sockets !== this.selectedMotherboard.sockets
+        return (
+          this.selectedProcessor.sockets !== this.selectedMotherboard.sockets
+        )
       } else {
         return false
       }
     },
-    showCpuRandomAccessMemoryMismatchMessage: function() {
-      if (this.selectedProcessor.ram_memory_types && this.selectedRandomAccessMemory.ram_memory_types) {
-        return this.selectedProcessor.ram_memory_types !== this.selectedRandomAccessMemory.ram_memory_types
+    showCpuRandomAccessMemoryMismatchMessage: function () {
+      if (
+        this.selectedProcessor.ram_memory_types &&
+        this.selectedRandomAccessMemory.ram_memory_types
+      ) {
+        return (
+          this.selectedProcessor.ram_memory_types !==
+          this.selectedRandomAccessMemory.ram_memory_types
+        )
       } else {
         return false
       }
     },
-    showCpuRandomAccessMemoryCapacityMessage: function() {
-      if (this.selectedProcessor.max_memory_supported && this.selectedRandomAccessMemory.total_capacity_gb) {
-        return this.selectedProcessor.max_memory_supported < this.selectedRandomAccessMemory.total_capacity_gb
+    showCpuRandomAccessMemoryCapacityMessage: function () {
+      if (
+        this.selectedProcessor.max_memory_supported &&
+        this.selectedRandomAccessMemory.total_capacity_gb
+      ) {
+        return (
+          this.selectedProcessor.max_memory_supported <
+          this.selectedRandomAccessMemory.total_capacity_gb
+        )
       } else {
         return false
       }
     },
     showMbRandomAccessMemoryMismatchMessage: function () {
-      if (this.selectedMotherboard.ram_memory_types && this.selectedRandomAccessMemory.ram_memory_types) {
-        return this.selectedMotherboard.ram_memory_types !== this.selectedRandomAccessMemory.ram_memory_types
+      if (
+        this.selectedMotherboard.ram_memory_types &&
+        this.selectedRandomAccessMemory.ram_memory_types
+      ) {
+        return (
+          this.selectedMotherboard.ram_memory_types !==
+          this.selectedRandomAccessMemory.ram_memory_types
+        )
       } else {
         return false
       }
     },
     showMbRandomAccessMemoryCapacityMessage: function () {
-      if (this.selectedMotherboard.ram_memory_types && this.selectedRandomAccessMemory.ram_memory_types) {
-        return this.selectedMotherboard.max_memory_supported < this.selectedRandomAccessMemory.total_capacity_gb
+      if (
+        this.selectedMotherboard.ram_memory_types &&
+        this.selectedRandomAccessMemory.ram_memory_types
+      ) {
+        return (
+          this.selectedMotherboard.max_memory_supported <
+          this.selectedRandomAccessMemory.total_capacity_gb
+        )
       } else {
         return false
       }
@@ -252,22 +307,28 @@ export default {
       return this.selectedRandomAccessMemory.modules === 1
     },
     showOkMessage: function () {
-      return !this.showCpuSocketeMissmatchMessage &&
-      !this.showCpuRandomAccessMemoryMismatchMessage &&
-      !this.showCpuRandomAccessMemoryCapacityMessage &&
-      !this.showMbRandomAccessMemoryMismatchMessage &&
-      !this.showMbRandomAccessMemoryCapacityMessage &&
-      !this.showRamDualChannelWarningMessage
+      return (
+        !this.showCpuSocketeMissmatchMessage &&
+        !this.showCpuRandomAccessMemoryMismatchMessage &&
+        !this.showCpuRandomAccessMemoryCapacityMessage &&
+        !this.showMbRandomAccessMemoryMismatchMessage &&
+        !this.showMbRandomAccessMemoryCapacityMessage &&
+        !this.showRamDualChannelWarningMessage
+      )
     },
     showPsuCalculations: function () {
       return this.selectedPowerSupply.max_power_w
     },
     requiredPower: function () {
-      return (this.selectedProcessor.thermal_design_power_w || 0) +
-      (this.selectedGraphicsCard.thermal_design_power_w || 0) +
-      (this.selectedMotherboard.model ? 150 : 0) +
-      (this.selectedRandomAccessMemory.modules ? this.selectedRandomAccessMemory.modules * 15 : 0) +
-      (this.selectedDrive.model ? 30 : 0)
+      return (
+        (this.selectedProcessor.thermal_design_power_w || 0) +
+        (this.selectedGraphicsCard.thermal_design_power_w || 0) +
+        (this.selectedMotherboard.model ? 150 : 0) +
+        (this.selectedRandomAccessMemory.modules
+          ? this.selectedRandomAccessMemory.modules * 15
+          : 0) +
+        (this.selectedDrive.model ? 30 : 0)
+      )
     }
   }
 }

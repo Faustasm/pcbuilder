@@ -11,6 +11,7 @@
     "axios": "^0.21.1",
     "chokidar": "^3.5.3",
     "core-js": "^3.6.5",
+    "prettier-standard": "^16.4.1",
     "vue": "^2.6.11",
     "vue-country-flag": "^2.3.2",
     "vue-i18n": "^8.27.0",

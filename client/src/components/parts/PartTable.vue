@@ -2,15 +2,19 @@
   <div class="w3-margin-top">
     <div class="w3-row">
       <div class="w3-col s12 m12 l12">
-        <Paginator/>
+        <Paginator />
       </div>
     </div>
     <div class="w3-container w3-margin-top">
       <div class="w3-row" v-if="showRecommendedProducts">
         <div class="w3-col s12 m12 l4">
           <div class="w3-container w3-center">
-            <p>Dažniausiai renkama kartu: </p>
-            <img class="w3-margin-top" src="../../assets/right-arrow-svgrepo-com.svg" height="70">
+            <p>Dažniausiai renkama kartu:</p>
+            <img
+              class="w3-margin-top"
+              src="../../assets/right-arrow-svgrepo-com.svg"
+              height="70"
+            />
           </div>
         </div>
         <div v-if="selectedPart.endpoint === 'processors'">
@@ -111,37 +115,30 @@
         </div>
       </div>
       <div class="w3-row">
-          <div
-            class="w3-col s12 m12 l4"
-            v-for="part in parts"
-            :key="part.id"
-          >
-            <Processor
-              v-if="selectedPart.endpoint === 'processors'"
-              :processor="part"
-            />
-            <GraphicsCard
-              v-if="selectedPart.endpoint === 'graphics_cards'"
-              :graphicsCard="part"
-              :short="false"
-            />
-            <Motherboard
-              v-if="selectedPart.endpoint === 'motherboards'"
-              :motherboard="part"
-            />
-            <RandomAccessMemory
-              v-if="selectedPart.endpoint === 'random_access_memory'"
-              :randomAccessMemory="part"
-            />
-            <Drive
-              v-if="selectedPart.endpoint === 'drives'"
-              :drive="part"
-            />
-            <PowerSupply
-              v-if="selectedPart.endpoint === 'power_supplies'"
-              :powerSupply="part"
-            />
-          </div>
+        <div class="w3-col s12 m12 l4" v-for="part in parts" :key="part.id">
+          <Processor
+            v-if="selectedPart.endpoint === 'processors'"
+            :processor="part"
+          />
+          <GraphicsCard
+            v-if="selectedPart.endpoint === 'graphics_cards'"
+            :graphicsCard="part"
+            :short="false"
+          />
+          <Motherboard
+            v-if="selectedPart.endpoint === 'motherboards'"
+            :motherboard="part"
+          />
+          <RandomAccessMemory
+            v-if="selectedPart.endpoint === 'random_access_memory'"
+            :randomAccessMemory="part"
+          />
+          <Drive v-if="selectedPart.endpoint === 'drives'" :drive="part" />
+          <PowerSupply
+            v-if="selectedPart.endpoint === 'power_supplies'"
+            :powerSupply="part"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -173,12 +170,12 @@ export default {
         memory_size_gb: '6',
         prices: [
           {
-            'vendor': '3a.lt',
-            'price': '$202.00'
+            vendor: '3a.lt',
+            price: '$202.00'
           },
           {
-            'vendor': 'vgtushop.lt',
-            'price': '212.00'
+            vendor: 'vgtushop.lt',
+            price: '212.00'
           }
         ]
       },
@@ -190,12 +187,12 @@ export default {
         memory_size_gb: '6',
         prices: [
           {
-            'vendor': '3a.lt',
-            'price': '$203.00'
+            vendor: '3a.lt',
+            price: '$203.00'
           },
           {
-            'vendor': 'vgtushop.lt',
-            'price': '213.00'
+            vendor: 'vgtushop.lt',
+            price: '213.00'
           }
         ]
       }
@@ -211,36 +208,66 @@ export default {
     PowerSupply
   },
   computed: {
-     selectedPart: () => store.state.selectedPart,
-     selectedProcessor: () => store.state.selectedProcessor,
-     selectedGraphicsCard: () => store.state.selectedGraphicsCard,
-     selectedMotherboard: () => store.state.selectedMotherboard,
-     selectedRandomAccessMemory: () => store.state.selectedRandomAccessMemory,
-     selectedPowerSupply: () => store.state.selectedPowerSupply,
-     selectedDrive: () => store.state.selectedDrive,
-     parts: () => store.state.parts,
-     recommendedBuild: () => store.state.recommendedBuild,
-     showRecommendedProducts () {
-      if (this.selectedPart.endpoint == 'processors' && this.selectedProcessor.id && this.recommendedBuild && this.recommendedBuild.id) {
+    selectedPart: () => store.state.selectedPart,
+    selectedProcessor: () => store.state.selectedProcessor,
+    selectedGraphicsCard: () => store.state.selectedGraphicsCard,
+    selectedMotherboard: () => store.state.selectedMotherboard,
+    selectedRandomAccessMemory: () => store.state.selectedRandomAccessMemory,
+    selectedPowerSupply: () => store.state.selectedPowerSupply,
+    selectedDrive: () => store.state.selectedDrive,
+    parts: () => store.state.parts,
+    recommendedBuild: () => store.state.recommendedBuild,
+    showRecommendedProducts () {
+      if (
+        this.selectedPart.endpoint == 'processors' &&
+        this.selectedProcessor.id &&
+        this.recommendedBuild &&
+        this.recommendedBuild.id
+      ) {
         return true
       }
-      if (this.selectedPart.endpoint == 'graphics_cards' && this.selectedGraphicsCard.id && this.recommendedBuild && this.recommendedBuild.id) {
+      if (
+        this.selectedPart.endpoint == 'graphics_cards' &&
+        this.selectedGraphicsCard.id &&
+        this.recommendedBuild &&
+        this.recommendedBuild.id
+      ) {
         return true
       }
-      if (this.selectedPart.endpoint == 'drives' && this.selectedDrive.id && this.recommendedBuild && this.recommendedBuild.id) {
+      if (
+        this.selectedPart.endpoint == 'drives' &&
+        this.selectedDrive.id &&
+        this.recommendedBuild &&
+        this.recommendedBuild.id
+      ) {
         return true
       }
-      if (this.selectedPart.endpoint == 'motherboards' && this.selectedMotherboard.id && this.recommendedBuild && this.recommendedBuild.id) {
+      if (
+        this.selectedPart.endpoint == 'motherboards' &&
+        this.selectedMotherboard.id &&
+        this.recommendedBuild &&
+        this.recommendedBuild.id
+      ) {
         return true
       }
-      if (this.selectedPart.endpoint == 'random_access_memory' && this.selectedRandomAccessMemory.id && this.recommendedBuild && this.recommendedBuild.id) {
+      if (
+        this.selectedPart.endpoint == 'random_access_memory' &&
+        this.selectedRandomAccessMemory.id &&
+        this.recommendedBuild &&
+        this.recommendedBuild.id
+      ) {
         return true
       }
-      if (this.selectedPart.endpoint == 'power_supplies' && this.selectedPowerSupply.id && this.recommendedBuild && this.recommendedBuild.id) {
+      if (
+        this.selectedPart.endpoint == 'power_supplies' &&
+        this.selectedPowerSupply.id &&
+        this.recommendedBuild &&
+        this.recommendedBuild.id
+      ) {
         return true
       }
       return false
     }
-   }
+  }
 }
 </script>
