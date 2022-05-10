@@ -1,0 +1,203 @@
+{
+  "components": {
+    "builds": {
+      "build": {
+        "select": "Select",
+        "processorName": "Processor",
+        "graphicsCardName": "Graphics card",
+        "motherboardName": "Motherboard",
+        "driveName": "Drive",
+        "powerSupplyName": "Power supply",
+        "randomAccessMemoryName": "Random access memory"
+      }
+    },
+    "common": {
+      "FilterSideBar": {
+        "title": "Filters",
+        "applyFilters": "Apply filters",
+        "clearFilters": "Clear filters"
+      },
+      "multiSelect": {
+        "selectedLabel": "Selected",
+        "selectLabel": "'Enter' - select",
+        "deselectLabel": "'Enter' - clear field"
+      },
+      "filters": {
+        "processor_id": "Processor",
+        "graphics_card_id": "Graphics card",
+        "motherboard_id": "Motherboard",
+        "power_supply_id": "Power supply",
+        "random_access_memory_id": "Random access memory",
+        "drive_id": "Hard drive",
+        "brand_id": "Brand",
+        "series_id": "Series",
+        "socket_id": "Socket",
+        "number_of_cores": "Cores",
+        "number_of_threads": "Threads",
+        "memory_type_id": "Memory type",
+        "max_memory_supported": "Max memory supported",
+        "max_memory_speed": "Max memory speed",
+        "operating_frequency_mhz": "Operating frequency",
+        "turbo_frequency_mhz": "Turbo frequency",
+        "thermal_design_power_w": "TDP",
+        "cooling_device_included": "Includes cooler",
+        "integrated_graphics_id": "Integrated graphics card",
+        "chipset_manufacturer_id": "Chipset manufacturer",
+        "memory_size_gb": "Atminties kiekis",
+        "slot_width": "Width",
+        "interface_id": "Interface",
+        "drive_type_id": "Drive type",
+        "form_factor_id": "Form factor",
+        "capacity_gb": "Capacity (gb)",
+        "max_read_mb_s": "Max read (mb)",
+        "max_write_mb_s": "Max write (mb)",
+        "chipset_id": "Chipset",
+        "form_factor_id": "Form factor",
+        "memory_slots": "Memory slots",
+        "timing": "Timing",
+        "cas_latency": "Cas latency",
+        "voltage": "Voltage",
+        "transfer_rate_mb": "Transfer rate (mb)",
+        "speed": "Speed",
+        "modules": "Modules",
+        "module_capacity_gb": "Module capacity (gb)",
+        "total_capacity_gb": "Total capacity (gb)",
+        "max_power_w": "Max power (W)",
+        "energy_efficiency_id": "Energy efficiency",
+        "modularity_id": "Modularity"
+      },
+      "navBar": {
+        "domainName": "Pcdb.lt",
+        "home": "Home",
+        "recommendationSystem": "Recommendation sistema",
+        "api": "API",
+        "about": "About",
+        "contacts": "Contacts"
+      }
+    },
+    "parts": {
+      "drive": {
+        "name": "Drives",
+        "notSelected": "Not selected",
+        "remove": "Remove"
+      },
+      "graphicsCard": {
+        "name": "Graphics card",
+        "notSelected": "Not selected",
+        "remove": "Remove"
+      },
+      "motherboard": {
+        "name": "Graphics card",
+        "notSelected": "Not selected",
+        "remove": "Remove"
+      },
+      "powerSupply": {
+        "name": "Power supply",
+        "notSelected": "Not selected",
+        "remove": "Remove"
+      },
+      "processor": {
+        "name": "Processor",
+        "notSelected": "Not selected",
+        "remove": "Remove"
+      },
+      "randomAccessMemory": {
+        "name":   "Random access memory",
+        "notSelected": "Not selected",
+        "remove": "Remove"
+      },
+      "partSelectBar": {
+        "processors": "Processor",
+        "graphics_cards": "Graphics card",
+        "drives": "Drives",
+        "motherboards": "Motherboads",
+        "random_access_memory": "Random access memory",
+        "power_supplies": "Power supply"
+      },
+      "partSideBar": {
+        "attentionHeader": "Attention!",
+        "warningHeader": "Warning",
+        "okMessage": "No compatability issues found.",
+        "cpuSocketMismatchMessage": "Processor socket does not match motherboard socket.",
+        "cpuRandomAccessMemoryMismatchMessage": "Processor does not support this memory type.",
+        "cpuRandomAccessMemoryCapacityMessage": "Processor does not support this much memory.",
+        "mbRandomAccessMemoryMismatchMessage": "Motherboard does not support this memory type,",
+        "mbRandomAccessMemoryCapacityMessage": "Motherboard does not support this much memory",
+        "ramDualChannelWarningMessage": "It is recommended to use more than one module to run in dual channel mode.",
+        "generateUrl": "Generate url"
+      }
+    },
+    "products": {
+      "drive": {
+        "select": "Select",
+        "description": {
+          "model": "Model",
+          "series": "Series",
+          "formFactor": "Form factor (inches)",
+          "capacity": "Capacity (GB)",
+          "readSpeed": "Read speed mb/s",
+          "writeSpeed": "Write speed mb/s",
+          "pricesLabel": "Prices"
+        }
+      },
+      "graphicsCard": {
+        "select": "Select",
+        "description": {
+          "name": "Name",
+          "model": "Model",
+          "memoryType": "Memory type",
+          "memorySize": "Memory size (GB)",
+          "pricesLabel": "Prices"
+        }
+      },
+      "motherboard": {
+        "select": "Select",
+        "description": {
+          "model": "Model",
+          "socket": "Socket",
+          "pricesLabel": "Prices"
+        }
+      },
+      "powerSupply": {
+        "select": "Select",
+        "description": {
+          "model": "Model",
+          "maxPower": "Max power (W)",
+          "energyEfficiency": "Energy efficiency",
+          "modularity": "Modularity",
+          "pricesLabel": "Prices"
+        }
+      },
+      "processor": {
+        "select": "Select",
+        "description": {
+          "name": "Name",
+          "series": "Series",
+          "socket": "Socket",
+          "memoryType": "Memory type",
+          "maxMemorySupported": "Max supported memory (GB)",
+          "integratedGraphicsCard": "Integrated graphics card",
+          "operatingFrequency": "Operating frequency (Ghz)",
+          "turboFrequency": "Turbo frequency (Ghz)",
+          "numberOfCores": "Cores",
+          "numberOfThreads": "Threads",
+          "pricesLabel": "Prices"
+        }
+      },
+      "randomAccessMemory": {
+        "select": "Select",
+        "description": {
+          "model": "Model",
+          "memoryType": "Memory type",
+          "casLatency": "Cas latency",
+          "voltage": "Voltage",
+          "modules": "Modules",
+          "speed": "Speed",
+          "moduleCapacity": "Module capacity (GB)",
+          "capacity": "Capacity (GB)",
+          "pricesLabel": "Prices"
+        }
+      }
+    }
+  }
+}

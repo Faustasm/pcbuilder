@@ -113,6 +113,18 @@
         "motherboards": "Motininės plokštės",
         "random_access_memory": "Operatyvioji atmintis",
         "power_supplies": "Maitinimo blokai"
+      },
+      "partSideBar": {
+        "attentionHeader": "Dėmesio!",
+        "warningHeader": "Perspėjimas",
+        "okMessage": "Suderinamumo problemų nerasta.",
+        "cpuSocketMismatchMessage": "Procesoriaus jungtis nesutampa su motininės plokštės jungtimi.",
+        "cpuRandomAccessMemoryMismatchMessage": "Procesoriaus nepalaiko šio atminties tipo.",
+        "cpuRandomAccessMemoryCapacityMessage": "Procesoriaus nepalaiko tiek atminties.",
+        "mbRandomAccessMemoryMismatchMessage": "Motininė plokštė nepalaiko šio atminties tipo.",
+        "mbRandomAccessMemoryCapacityMessage": "Motininė plokštė nepalaiko tiek atminties.",
+        "ramDualChannelWarningMessage": "Rekomenduojama naudoti operatyvia atmintį iš dviejų modulių, kad atmintis veiktu dviejų kanalų režimu.",
+        "generateUrl": "Generuoti nuorodą"
       }
     },
     "products": {
@@ -183,14 +195,6 @@
           "speed": "Greitis",
           "moduleCapacity": "Modulio talpa (GB)",
           "capacity": "Talpa (GB)",
-          "pricesLabel": "Kainos"
-        }
-      },
-      "recommendedProduct": {
-        "select": "Pasirinkti",
-        "description": {
-          "name": "Pavadinimas",
-          "model": "Modelis",
           "pricesLabel": "Kainos"
         }
       }

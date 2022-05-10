@@ -7,7 +7,9 @@
           </div>
           <div class="w3-threequarter">
             <div class="w3-third">
-              <p>{{requiredPower}}/{{selectedPowerSupply.max_power_w}}</p>
+              <p>
+                {{requiredPower}}/{{selectedPowerSupply.max_power_w}}
+              </p>
             </div>
             <div class="w3-twothird">
               <img class="w3-margin-top" src="../../assets/lighting.svg" height="30">
@@ -21,34 +23,58 @@
          src="../../assets/thumbs_up.svg"
          height="50"
      />
-      <p>Suderinamumo problemų nerasta.</p>
+      <p>
+        {{$t('components.parts.partSideBar.okMessage')}}
+      </p>
   </div>
     <div class="w3-panel w3-red" v-if="showCpuSocketeMissmatchMessage">
-      <h2>Dėmesio!</h2>
-      <p>Procesoriaus jungtis nesutampa su motininės plokštės jungtimi.</p>
+      <h2>
+        {{$t('components.parts.partSideBar.attentionHeader')}}
+      </h2>
+      <p>
+        {{$t('components.parts.partSideBar.cpuSocketMismatchMessage')}}
+      </p>
     </div>
     <div class="w3-panel w3-red" v-if="showCpuRandomAccessMemoryMismatchMessage">
-      <h2>Dėmesio!</h2>
-      <p>Procesoriaus nepalaiko šio atminties tipo.</p>
+      <h2>
+        {{$t('components.parts.partSideBar.attentionHeader')}}
+      </h2>
+      <p>
+        {{$t('components.parts.partSideBar.cpuRandomAccessMemoryMismatchMessage')}}
+      </p>
     </div>
     <div class="w3-panel w3-red" v-if="showCpuRandomAccessMemoryCapacityMessage">
-      <h2>Dėmesio!</h2>
-      <p>Procesoriaus nepalaiko tiek atminties.</p>
+      <h2>
+        {{$t('components.parts.partSideBar.attentionHeader')}}
+      </h2>
+      <p>
+        {{$t('components.parts.partSideBar.cpuRandomAccessMemoryCapacityMessage')}}
+      </p>
     </div>
     <div class="w3-panel w3-red" v-if="showMbRandomAccessMemoryMismatchMessage">
-      <h2>Dėmesio!</h2>
-      <p>Motininė plokštė nepalaiko šio atminties tipo.</p>
+      <h2>
+        {{$t('components.parts.partSideBar.attentionHeader')}}
+      </h2>
+      <p>{{$t('components.parts.partSideBar.mbRandomAccessMemoryMismatchMessage')}}</p>
     </div>
     <div class="w3-panel w3-red" v-if="showMbRandomAccessMemoryCapacityMessage">
-      <h2>Dėmesio!</h2>
-      <p>Motininė plokštė nepalaiko tiek atminties.</p>
+      <h2>
+        {{$t('components.parts.partSideBar.attentionHeader')}}
+      </h2>
+      <p>
+        {{$t('components.parts.partSideBar.mbRandomAccessMemoryCapacityMessage')}}
+      </p>
     </div>
     <div class="w3-panel w3-yellow" v-if="showRamDualChannelWarningMessage">
-      <h3>Perspėjimas!</h3>
-      <p>Rekomenduojama naudoti operatyvia atmintį iš dviejų modulių, kad atmintis veiktu dviejų kanalų režimu.</p>
+      <h2>
+        {{$t('components.parts.partSideBar.warningHeader')}}
+      </h2>
+      <p>
+        {{$t('components.parts.partSideBar.ramDualChannelWarningMessage')}}
+      </p>
     </div>
     <div class="w3-button w3-block w3-orange" v-if="showOkMessage && showPsuCalculations" @click="generateUrl">
-      Generuoti nuorodą
+      {{$t('components.parts.partSideBar.generateUrl')}}
     </div>
     <div class="w3-margin-top">
       <Processor/>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import VueRouter from 'vue-router'
 import Multiselect from 'vue-multiselect'
+import CountryFlag from 'vue-country-flag'
 import App from './App.vue'
 import messages from './lang'
 import store from './store';
@@ -13,6 +14,7 @@ Vue.config.productionTip = false
 Vue.use(VueI18n)
 Vue.use(VueRouter)
 Vue.component('multiselect', Multiselect)
+Vue.component('country-flag', CountryFlag)
 
 const router = new VueRouter(
   {

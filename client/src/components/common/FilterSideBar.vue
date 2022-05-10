@@ -1,5 +1,5 @@
 <template>
-  <div class="w3-col w3-margin-top">
+  <div class="w3-col">
     <div class="w3-container w3-bar w3-center w3-black">
       <h3>
         {{$t('components.common.FilterSideBar.title')}}:
@@ -36,6 +36,12 @@
       >
         {{$t('components.common.FilterSideBar.clearFilters')}}
       </div>
+    </div>
+    <div @click="changeLanguage('lt')">
+      <country-flag country='lt' size='normal'/>
+    </div>
+    <div @click="changeLanguage('gb')">
+      <country-flag country='gb' size='normal'/>
     </div>
   </div>
 </template>
@@ -80,6 +86,10 @@ export default {
     clearFilters: function() {
       this.selectedFilters = {}
       this.applyFilters()
+    },
+    changeLanguage: function(locale) {
+      console.log('I get called')
+      this.$root.$i18n.locale = locale
     }
   }
 }
