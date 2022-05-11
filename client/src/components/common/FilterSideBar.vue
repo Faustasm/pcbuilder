@@ -1,6 +1,6 @@
 <template>
   <div class="w3-col">
-    <div class="w3-container w3-bar w3-center w3-black">
+    <div class="w3-container w3-bar w3-center w3-black w3-margin-top">
       <h3>{{ $t('components.common.FilterSideBar.title') }}:</h3>
     </div>
     <div class="w3-card-4">
