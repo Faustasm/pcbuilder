@@ -51,7 +51,19 @@ export default {
     }
   },
   async created () {
-    this.getProducts()
+    if (this.selectedPowerSupply.id && this.products.length === 0) {
+      await this.getProducts()
+    }
+  },
+  watch: {
+    selectedProcessor (newSelectedPowerSupply, oldSelectedPowerSupply) {
+      if (
+        newSelectedPowerSupply != oldSelectedPowerSupply &&
+        this.selectedPowerSupply.id
+      ) {
+        this.getProducts()
+      }
+    }
   },
   computed: {
     selectedPowerSupply: () => store.state.selectedPowerSupply
@@ -70,7 +82,7 @@ export default {
     getProducts () {
       const payload = {
         filters: {
-          type: 'pwoer_supplies',
+          type: 'power_supplies',
           part_id: this.selectedPowerSupply.id
         }
       }
