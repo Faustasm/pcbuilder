@@ -107,6 +107,7 @@
         "remove": "Remove"
       },
       "partSelectBar": {
+        "component": "Part",
         "processors": "Processor",
         "graphics_cards": "Graphics card",
         "drives": "Drives",

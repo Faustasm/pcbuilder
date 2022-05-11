@@ -107,6 +107,7 @@
         "remove": "Šalinti"
       },
       "partSelectBar": {
+        "component": "Komponentas",
         "processors": "Procesorius",
         "graphics_cards": "Vaizdo plokštės",
         "drives": "Diskai",
