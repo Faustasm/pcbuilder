@@ -11,5 +11,9 @@ class UpdateProduct(Action):
     def perform(self, db, data, product_id):
         tables, parent_tables = load_tables(db, [product_table_name], part_table_names)
         product_table = tables.get(product_table_name)
-        statement = product_table.update().where(product_table.c.id==product_id).values(**data)
+        statement = (
+            product_table.update()
+            .where(product_table.c.id == product_id)
+            .values(**data)
+        )
         db.engine.execute(statement)

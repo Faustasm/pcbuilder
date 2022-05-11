@@ -3,9 +3,19 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from config import db_uri
-from actions import GetParts, GetBuilds, GetVendors, GetProducts, \
-    CreateNewBuild, CreateNewVendor, CreateNewProduct, \
-    UpdateVendor, DeleteVendor, UpdateProduct, DeleteProduct
+from actions import (
+    GetParts,
+    GetBuilds,
+    GetVendors,
+    GetProducts,
+    CreateNewBuild,
+    CreateNewVendor,
+    CreateNewProduct,
+    UpdateVendor,
+    DeleteVendor,
+    UpdateProduct,
+    DeleteProduct,
+)
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
@@ -48,7 +58,7 @@ def builds():
         data = request.json.get("payload")
         action = CreateNewBuild()
         action.perform(db, data)
-        return 'success', 201
+        return "success", 201
     return 405
 
 
@@ -65,20 +75,20 @@ def vendors():
         data = request.json.get("payload")
         action = CreateNewVendor()
         action.perform(db, data)
-        return 'success', 201
+        return "success", 201
     if method == "PUT":
         args = dict(request.args)
-        vendor_id = args.get('id')
+        vendor_id = args.get("id")
         data = request.json.get("payload")
         action = UpdateVendor()
         action.perform(db, data, vendor_id)
-        return 'success', 200
+        return "success", 200
     if method == "DELETE":
         args = dict(request.args)
-        vendor_id = args.get('id')
+        vendor_id = args.get("id")
         action = DeleteVendor()
         action.perform(db, vendor_id)
-        return 'success', 200
+        return "success", 200
     return 405
 
 
@@ -95,18 +105,18 @@ def products():
         data = request.json.get("payload")
         action = CreateNewProduct()
         action.perform(db, data)
-        return 'success', 201
+        return "success", 201
     if method == "PUT":
         args = dict(request.args)
-        product_id = args.get('id')
+        product_id = args.get("id")
         data = request.json.get("payload")
         action = UpdateProduct()
         action.perform(db, data, product_id)
-        return 'success', 200
+        return "success", 200
     if method == "DELETE":
         args = dict(request.args)
-        product_id = args.get('id')
+        product_id = args.get("id")
         action = DeleteProduct()
         action.perform(db, product_id)
-        return 'success', 200
+        return "success", 200
     return 405

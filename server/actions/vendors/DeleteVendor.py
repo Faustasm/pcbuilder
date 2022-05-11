@@ -11,5 +11,5 @@ class DeleteVendor(Action):
     def perform(self, db, vendor_id):
         tables, parent_tables = load_tables(db, [vendor_table_name], part_table_names)
         vendor_table = tables.get(vendor_table_name)
-        statement = vendor_table.delete().where(vendor_table.c.id==vendor_id)
+        statement = vendor_table.delete().where(vendor_table.c.id == vendor_id)
         db.engine.execute(statement)

@@ -23,7 +23,9 @@ export default {
     selectedPart: function () {
       return {
         endpoint: store.state.selectedPart.endpoint,
-        label: this.$t(`components.parts.partSelectBar.${store.state.selectedPart.endpoint}`)
+        label: this.$t(
+          `components.parts.partSelectBar.${store.state.selectedPart.endpoint}`
+        )
       }
     },
     partsList: () => store.state.partsList,

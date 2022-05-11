@@ -11,5 +11,5 @@ class DeleteProduct(Action):
     def perform(self, db, product_id):
         tables, parent_tables = load_tables(db, [product_table_name], part_table_names)
         product_table = tables.get(product_table_name)
-        statement = product_table.delete().where(product_table.c.id==product_id)
+        statement = product_table.delete().where(product_table.c.id == product_id)
         db.engine.execute(statement)
