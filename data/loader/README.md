@@ -28,8 +28,8 @@ USER = "postgres"
 PASS = "123"
 HOST = "127.0.0.1"
 PORT = 5432
-DB_NAME = "example_db"
-CSV_DIR = "example_data"
+DB_NAME = "pcdb_test"
+CSV_DIR = "parts"
 IGNORED_FILES = []
 
 ```
@@ -38,12 +38,10 @@ IGNORED_FILES = []
 ```
 psql -U postgres -h 127.0.0.1
 DROP DATABASE pcdb_test;
-\q
 ```
 
 6. Create `example_db`.
 ```
-psql -U postgres -h 127.0.0.1
 CREATE DATABASE pcdb_test;
 \q
 ```
