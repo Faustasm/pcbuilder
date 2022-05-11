@@ -2,12 +2,12 @@
   <multiselect
     v-model="selectedPart"
     :options="partsListLabeled"
-    placeholder="Komponentas"
+    :placeholder="$t('components.parts.partSelectBar.component')"
     :selectedLabel="$t('components.common.multiSelect.selectedLabel')"
     :selectLabel="$t('components.common.multiSelect.selectLabel')"
     :deselectLabel="$t('components.common.multiSelect.deselectLabel')"
     track-by="endpoint"
-    label="endpoint"
+    label="label"
     @input="setSelectedPart"
   >
   </multiselect>
@@ -20,7 +20,12 @@ export default {
   name: 'PartSelectBar',
   componets: [Multiselect],
   computed: {
-    selectedPart: () => store.state.selectedPart,
+    selectedPart: function () {
+      return {
+        endpoint: store.state.selectedPart.endpoint,
+        label: this.$t(`components.parts.partSelectBar.${store.state.selectedPart.endpoint}`)
+      }
+    },
     partsList: () => store.state.partsList,
     partsListLabeled: function () {
       let partsListLabeled = []
