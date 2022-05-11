@@ -3,4 +3,10 @@ from .parts.GetParts import GetParts
 from .builds.GetBuilds import GetBuilds
 from .builds.CreateNewBuild import CreateNewBuild
 from .vendors.GetVendors import GetVendors
+from .vendors.CreateNewVendor import CreateNewVendor
+from .vendors.UpdateVendor import UpdateVendor
+from .vendors.DeleteVendor import DeleteVendor
 from .products.GetProducts import GetProducts
+from .products.CreateNewProduct import CreateNewProduct
+from .products.UpdateProduct import UpdateProduct
+from .products.DeleteProduct import DeleteProduct
