@@ -248,13 +248,13 @@ CREATE TABLE "sockets" (
   "name" varchar NOT NULL
 );
 
-CREATE TABLE "vendor" (
+CREATE TABLE "vendors" (
   "id" SERIAL PRIMARY KEY,
   "name" varchar NOT NULL,
   "key" varchar NOT NULL
 );
 
-CREATE TABLE "product" (
+CREATE TABLE "products" (
   "id" SERIAL PRIMARY KEY,
   "vendor_id" int NOT NULL,
   "part_id" int NOT NULL,
@@ -367,4 +367,4 @@ ALTER TABLE "power_supplies" ADD FOREIGN KEY ("id") REFERENCES "psu_power_connec
 
 ALTER TABLE "power_supplies" ADD FOREIGN KEY ("id") REFERENCES "psu_adapters" ("power_supply_id");
 
-ALTER TABLE "vendor" ADD FOREIGN KEY ("id") REFERENCES "product" ("vendor_id");
+ALTER TABLE "vendors" ADD FOREIGN KEY ("id") REFERENCES "products" ("vendor_id");

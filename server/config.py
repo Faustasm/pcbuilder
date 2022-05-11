@@ -20,8 +20,8 @@ db_uri = "postgresql+psycopg2://{}:{}@{}:{}/{}".format(
 
 # Table names
 build_table_name = "builds"
-vendor_table_name = "vendor"
-product_table_name = "product"
+vendor_table_name = "vendors"
+product_table_name = "products"
 part_table_names = [
     "processors",
     "graphics_cards",
@@ -51,7 +51,7 @@ part_parent_table_names = [
 ]
 
 product_parent_table_names = [
-    "vendor",
+    vendor_table_name,
 ]
 
 # Join maps

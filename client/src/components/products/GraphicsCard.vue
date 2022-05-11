@@ -48,7 +48,7 @@
             }}:
           </p>
           <p v-for="product in products" :key="product">
-            {{ product.vendor }} : {{ product.price }}
+            {{ product.vendors }} : {{ product.price }}
           </p>
         </div>
       </div>
