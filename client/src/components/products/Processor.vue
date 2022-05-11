@@ -21,7 +21,7 @@
             <img
               class="w3-margin-top"
               :src="
-                require(`../../assets/brand_icons/${processorData.brands}.svg`)
+                require(`../../assets/brand_icons/${processorData.brands.toLowerCase()}.svg`)
               "
               height="15"
             />

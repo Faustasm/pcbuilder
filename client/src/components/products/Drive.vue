@@ -17,7 +17,15 @@
             src="../../assets/parts/hard-drive.svg"
             height="100"
           />
-          <p>{{ driveData.brands }}</p>
+          <p>
+            <img
+              class="w3-margin-top"
+              :src="
+                require(`../../assets/brand_icons/${driveData.brands.toLowerCase()}.svg`)
+              "
+              height="15"
+            />
+          </p>
           <p>
             {{ $t('components.products.drive.description.model') }}:
             {{ driveData.model }}

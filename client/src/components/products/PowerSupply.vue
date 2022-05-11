@@ -17,7 +17,15 @@
             src="../../assets/parts/supply.svg"
             height="100"
           />
-          <p>{{ powerSupplyData.brands }}</p>
+          <p>
+            <img
+              class="w3-margin-top"
+              :src="
+                require(`../../assets/brand_icons/${powerSupplyData.brands.toLowerCase()}.svg`)
+              "
+              height="15"
+            />
+          </p>
           <p>
             {{ $t('components.products.powerSupply.description.model') }}:
             {{ powerSupplyData.model }}

@@ -17,7 +17,15 @@
             src="../../assets/parts/motherboard.svg"
             height="100"
           />
-          <p>{{ motherboardData.brands }}</p>
+          <p>
+            <img
+              class="w3-margin-top"
+              :src="
+                require(`../../assets/brand_icons/${motherboardData.brands.toLowerCase()}.svg`)
+              "
+              height="15"
+            />
+          </p>
           <p>
             {{ $t('components.products.motherboard.description.model') }}:
             {{ motherboardData.model }}

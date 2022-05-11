@@ -21,7 +21,7 @@
             <img
               class="w3-margin-top"
               :src="
-                require(`../../assets/brand_icons/${graphicsCardData.brands}.svg`)
+                require(`../../assets/brand_icons/${graphicsCardData.brands.toLowerCase()}.svg`)
               "
               height="15"
             />
