@@ -16,7 +16,7 @@ from actions import (
     UpdateProduct,
     DeleteProduct,
     CheckPartCompatability,
-    CalculateRequiredPower
+    CalculateRequiredPower,
 )
 
 app = Flask(__name__)
@@ -83,14 +83,13 @@ def vendors():
         vendor_id = args.get("id")
         data = request.json.get("payload")
         action = UpdateVendor()
-        action.perform(db, data, vendor_id)
-        return "success", 200
+        return jsonify(action.perform(db, data, vendor_id)), 200
     if method == "DELETE":
         args = dict(request.args)
         vendor_id = args.get("id")
+        data = request.json.get("payload")
         action = DeleteVendor()
-        action.perform(db, vendor_id)
-        return "success", 200
+        return jsonify(action.perform(db, data, vendor_id)), 200
     return 405
 
 
@@ -106,21 +105,18 @@ def products():
     if method == "POST":
         data = request.json.get("payload")
         action = CreateNewProduct()
-        action.perform(db, data)
-        return "success", 201
+        return jsonify(action.perform(db, data)), 200
     if method == "PUT":
         args = dict(request.args)
         product_id = args.get("id")
         data = request.json.get("payload")
         action = UpdateProduct()
-        action.perform(db, data, product_id)
-        return "success", 200
+        return jsonify(action.perform(db, data)), 200
     if method == "DELETE":
         args = dict(request.args)
         product_id = args.get("id")
         action = DeleteProduct()
-        action.perform(db, product_id)
-        return "success", 200
+        return jsonify(action.perform(db, data)), 200
     return 405
 
 
