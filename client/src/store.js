@@ -133,9 +133,9 @@ export default new Vuex.Store({
       axios
         .get('http://127.0.0.1:5000/compatability', {
           params: {
-            'mb_id': this.state.selectedMotherboard.id,
-            'cpu_id': this.state.selectedProcessor.id,
-            'ram_id': this.state.selectedRandomAccessMemory.id,
+            mb_id: this.state.selectedMotherboard.id,
+            cpu_id: this.state.selectedProcessor.id,
+            ram_id: this.state.selectedRandomAccessMemory.id
           }
         })
         .then(r => r.data)
@@ -147,11 +147,11 @@ export default new Vuex.Store({
       axios
         .get('http://127.0.0.1:5000/calculate_required_power', {
           params: {
-            'mb_id': this.state.selectedMotherboard.id,
-            'cpu_id': this.state.selectedProcessor.id,
-            'ram_id': this.state.selectedRandomAccessMemory.id,
-            "drive_id": this.state.selectedDrive.id,
-            "gpu_id": this.state.selectedGraphicsCard.id
+            mb_id: this.state.selectedMotherboard.id,
+            cpu_id: this.state.selectedProcessor.id,
+            ram_id: this.state.selectedRandomAccessMemory.id,
+            drive_id: this.state.selectedDrive.id,
+            gpu_id: this.state.selectedGraphicsCard.id
           }
         })
         .then(r => r.data)

@@ -74,6 +74,7 @@ export default {
     },
     clear () {
       this.$store.dispatch('clearSelectedDrive')
+      this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
     },
     getProducts () {

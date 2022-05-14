@@ -203,12 +203,14 @@ export default {
       return this.compatabilityIssues && this.compatabilityIssues.length === 0
     },
     showPsuCalculations: function () {
-      return this.selectedProcessor.id ||
+      return (
+        this.selectedProcessor.id ||
         this.selectedGraphicsCard.id ||
         this.selectedMotherboard.id ||
         this.selectedRandomAccessMemory.id ||
         this.selectedPowerSupply.id ||
         this.selectedDrive.id
+      )
     }
   }
 }

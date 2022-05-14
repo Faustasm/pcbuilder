@@ -78,6 +78,7 @@ export default {
     },
     clear () {
       this.$store.dispatch('clearSelectedGraphicsCard')
+      this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
     },
     getProducts () {
