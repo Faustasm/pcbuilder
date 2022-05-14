@@ -1,8 +1,5 @@
 <template>
   <div class="w3-col">
-    <div class="w3-container w3-bar w3-center w3-black w3-margin-top">
-      <h3>{{ $t('components.common.FilterSideBar.title') }}:</h3>
-    </div>
     <div class="w3-card-4">
       <slot name="componentSelectBar" />
       <div ckass="w3-row" v-for="filter in filters" :key="filter.filter_name">
@@ -22,8 +19,8 @@
       </div>
       <div
         @click="clearFilters()"
-        class="w3-button w3-bar w3-win8-crimson"
-        style="background-color: #a20025; color: white;"
+        class="w3-button w3-bar"
+        style="background-color: #f44336; color: white;"
       >
         {{ $t('components.common.FilterSideBar.clearFilters') }}
       </div>
@@ -85,14 +82,3 @@ export default {
 }
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
-
-<style>
-.w3-win8-crimson {
-  color: #fff;
-  background-color: #a20025;
-}
-.w3-2019-bluestone {
-  color: #fff;
-  background-color: #577284;
-}
-</style>

@@ -94,7 +94,7 @@
       </div>
     </div>
     <div class="w3-row">
-      <button v-on:click="select" class="w3-button w3-deep-orange w3-block">
+      <button v-on:click="select" class="w3-button w3-block w3-deep-orange">
         {{ $t('components.products.graphicsCard.select') }}
       </button>
     </div>

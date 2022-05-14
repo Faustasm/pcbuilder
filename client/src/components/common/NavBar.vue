@@ -1,7 +1,7 @@
 <template>
   <div class="w3-row">
     <div
-      class="w3-col s12 m2 l2 w3-center w3-win8-crimson"
+      class="w3-col s12 m2 l2 w3-center w3-win8-orange"
       style="height:130px"
     >
       <img
@@ -117,10 +117,10 @@ export default {
   methods: {
     addClass: function (e) {
       e.target.classList.remove('w3-black')
-      e.target.classList.add('w3-win8-crimson')
+      e.target.classList.add('w3-win8-orange')
     },
     removeClass: function (e) {
-      e.target.classList.remove('w3-win8-crimson')
+      e.target.classList.remove('w3-win8-orange')
       e.target.classList.add('w3-black')
     },
     setActiveTab: function (tab) {
@@ -131,8 +131,8 @@ export default {
 </script>
 
 <style>
-.w3-win8-crimson {
-  color: #fff;
-  background-color: #a20025;
-}
+  .w3-win8-orange {
+    color: #fff;
+    background-color: #fa6800;
+  }
 </style>
