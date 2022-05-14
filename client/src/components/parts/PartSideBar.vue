@@ -32,16 +32,10 @@
         <div class="w3-right">
           <div class="w3-row">
             <div class="w3-left">
-              <p
-                  class="w3-margin"
-                  v-if="selectedPowerSupply.max_power_w"
-               >
+              <p class="w3-margin" v-if="selectedPowerSupply.max_power_w">
                 {{ requiredPower }}/{{ selectedPowerSupply.max_power_w }}
               </p>
-              <p
-                  class="w3-margin"
-                  v-else
-               >
+              <p class="w3-margin" v-else>
                 Nepasirinkta
               </p>
             </div>

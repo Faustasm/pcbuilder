@@ -1,9 +1,6 @@
 <template>
   <div class="w3-row">
-    <div
-      class="w3-col s12 m2 l2 w3-center w3-win8-orange"
-      style="height:130px"
-    >
+    <div class="w3-col s12 m2 l2 w3-center w3-win8-orange" style="height:130px">
       <img
         class="w3-margin-top"
         src="../../assets/navbar_icons/pc-tower.svg"
@@ -131,8 +128,8 @@ export default {
 </script>
 
 <style>
-  .w3-win8-orange {
-    color: #fff;
-    background-color: #fa6800;
-  }
+.w3-win8-orange {
+  color: #fff;
+  background-color: #fa6800;
+}
 </style>
