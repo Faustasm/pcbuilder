@@ -13,7 +13,6 @@ class DeleteVendor(Action):
         tables, parent_tables = load_tables(db, [vendor_table_name], part_table_names)
         vendor_table = tables.get(vendor_table_name)
         vendor = db.session.query(vendor_table).filter_by(id=vendor_id).first()
-        input(data)
         key_bytes = bytes(data.pop("key"), "utf-8")
         authentication_success = checkpw(key_bytes, vendor.key.encode("utf-8"))
         if authentication_success:
