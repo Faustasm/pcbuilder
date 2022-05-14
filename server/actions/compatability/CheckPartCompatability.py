@@ -47,7 +47,7 @@ class CheckPartCompatability(Action):
                 compatability_issues.append("cpuRandomAccessMemoryMismatchMessage")
             if (
                 processor.max_memory_supported_gb
-                != random_access_memory.total_capacity_gb
+                < random_access_memory.total_capacity_gb
             ):
                 compatability_issues.append("cpuRandomAccessMemoryCapacityMessage")
         if motherboard and random_access_memory:
@@ -55,11 +55,10 @@ class CheckPartCompatability(Action):
                 compatability_issues.append("mbRandomAccessMemoryMismatchMessage")
             if (
                 motherboard.max_memory_supported_gb
-                != random_access_memory.total_capacity_gb
+                < random_access_memory.total_capacity_gb
             ):
                 compatability_issues.append("mbRandomAccessMemoryCapacityMessage")
         if random_access_memory:
             if random_access_memory.modules < 2:
                 compatability_issues.append("ramDualChannelWarningMessage")
-
         return {"compatability_issues": compatability_issues}
