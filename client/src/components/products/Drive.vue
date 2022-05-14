@@ -100,6 +100,8 @@ export default {
       }
       this.$store.dispatch('setSelectedDrive', this.driveData)
       this.$store.dispatch('loadRecommendedBuilds', payload)
+      this.$store.dispatch('getCompatabilityIssues')
+      this.$store.dispatch('getCalculatedPowerUsage')
     },
     getProducts () {
       const payload = {

@@ -13,7 +13,6 @@
     },
     "common": {
       "FilterSideBar": {
-        "title": "Filters",
         "applyFilters": "Apply filters",
         "clearFilters": "Clear filters"
       },
@@ -67,7 +66,7 @@
         "modularity_id": "Modularity"
       },
       "navBar": {
-        "domainName": "Pcdb.lt",
+        "domainName": "Pcdb.tech",
         "home": "Home",
         "recommendationSystem": "Recommendation system",
         "api": "API",
@@ -116,6 +115,7 @@
         "power_supplies": "Power supply"
       },
       "partSideBar": {
+        "okHeader": "Ok!",
         "attentionHeader": "Attention!",
         "warningHeader": "Warning",
         "okMessage": "No compatability issues found.",

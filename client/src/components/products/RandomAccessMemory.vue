@@ -143,6 +143,8 @@ export default {
         this.randomAccessMemoryData
       )
       this.$store.dispatch('loadRecommendedBuilds', payload)
+      this.$store.dispatch('getCompatabilityIssues')
+      this.$store.dispatch('getCalculatedPowerUsage')
     },
     getProducts () {
       const payload = {

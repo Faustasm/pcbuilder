@@ -10,3 +10,5 @@ from .products.GetProducts import GetProducts
 from .products.CreateNewProduct import CreateNewProduct
 from .products.UpdateProduct import UpdateProduct
 from .products.DeleteProduct import DeleteProduct
+from .compatability.CheckPartCompatability import CheckPartCompatability
+from .compatability.CalculateRequiredPower import CalculateRequiredPower

@@ -136,6 +136,7 @@ export default {
       }
       this.$store.dispatch('setSelectedProcessor', this.processorData)
       this.$store.dispatch('loadRecommendedBuilds', payload)
+      this.$store.dispatch('getCalculatedPowerUsage')
     },
     getProducts () {
       const payload = {

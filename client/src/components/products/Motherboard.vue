@@ -86,6 +86,8 @@ export default {
       }
       this.$store.dispatch('setSelectedMotherboard', this.motherboardData)
       this.$store.dispatch('loadRecommendedBuilds', payload)
+      this.$store.dispatch('getCompatabilityIssues')
+      this.$store.dispatch('getCalculatedPowerUsage')
     },
     getProducts () {
       const payload = {

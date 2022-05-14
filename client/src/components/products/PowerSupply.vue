@@ -97,6 +97,7 @@ export default {
       }
       this.$store.dispatch('setSelectedPowerSupply', this.powerSupplyData)
       this.$store.dispatch('loadRecommendedBuilds', payload)
+      this.$store.dispatch('getCompatabilityIssues')
     },
     getProducts () {
       const payload = {

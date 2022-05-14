@@ -15,6 +15,8 @@ from actions import (
     DeleteVendor,
     UpdateProduct,
     DeleteProduct,
+    CheckPartCompatability,
+    CalculateRequiredPower
 )
 
 app = Flask(__name__)
@@ -119,4 +121,26 @@ def products():
         action = DeleteProduct()
         action.perform(db, product_id)
         return "success", 200
+    return 405
+
+
+@app.route("/compatability", methods=["GET"])
+def compatability():
+    method = request.method
+    if method == "GET":
+        args = dict(request.args)
+        part_ids = args
+        action = CheckPartCompatability()
+        return jsonify(action.perform(db, part_ids)), 200
+    return 405
+
+
+@app.route("/calculate_required_power", methods=["GET"])
+def required_power():
+    method = request.method
+    if method == "GET":
+        args = dict(request.args)
+        part_ids = args
+        action = CalculateRequiredPower()
+        return jsonify(action.perform(db, part_ids)), 200
     return 405

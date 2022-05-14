@@ -96,6 +96,8 @@ export default {
       }
       this.$store.dispatch('setSelectedGraphicsCard', this.graphicsCardData)
       this.$store.dispatch('loadRecommendedBuilds', payload)
+      this.$store.dispatch('getCompatabilityIssues')
+      this.$store.dispatch('getCalculatedPowerUsage')
     },
     getProducts () {
       const payload = {

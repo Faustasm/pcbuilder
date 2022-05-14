@@ -81,6 +81,7 @@ export default {
     },
     clear () {
       this.$store.dispatch('clearSelectedRandomAccessMemory')
+      this.$store.dispatch('getCalculatedPowerUsage')
     },
     getProducts () {
       const payload = {

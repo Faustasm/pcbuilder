@@ -1,103 +1,64 @@
 <template>
   <div class="w3-container">
-    <div class="w3-panel w3-bottombar">
-      <div class="w3-row w3-center" v-if="showPsuCalculations">
-        <div class="w3-quarter">
-          <img
-            class="w3-margin-top"
-            src="../../assets/parts/supply.svg"
-            height="30"
-          />
-        </div>
-        <div class="w3-threequarter">
-          <div class="w3-third">
-            <p>{{ requiredPower }}/{{ selectedPowerSupply.max_power_w }}</p>
-          </div>
-          <div class="w3-twothird">
-            <img
-              class="w3-margin-top"
-              src="../../assets/lighting.svg"
-              height="30"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="w3-panel w3-green" v-if="showOkMessage">
-      <img class="w3-margin-top" src="../../assets/thumbs_up.svg" height="50" />
+    <div class="w3-panel w3-round-xlarge w3-green" v-if="showOkMessage">
+      <h2>
+        {{ $t('components.parts.partSideBar.okHeader') }}
+      </h2>
       <p>
         {{ $t('components.parts.partSideBar.okMessage') }}
       </p>
     </div>
-    <div class="w3-panel w3-red" v-if="showCpuSocketeMissmatchMessage">
-      <h2>
-        {{ $t('components.parts.partSideBar.attentionHeader') }}
-      </h2>
-      <p>
-        {{ $t('components.parts.partSideBar.cpuSocketMismatchMessage') }}
-      </p>
-    </div>
     <div
-      class="w3-panel w3-red"
-      v-if="showCpuRandomAccessMemoryMismatchMessage"
+      class="w3-panel w3-round-xlarge w3-red"
+      v-for="compatabilityIssue in compatabilityIssues"
+      :key="compatabilityIssue"
     >
       <h2>
         {{ $t('components.parts.partSideBar.attentionHeader') }}
       </h2>
       <p>
-        {{
-          $t(
-            'components.parts.partSideBar.cpuRandomAccessMemoryMismatchMessage'
-          )
-        }}
+        {{ $t(`components.parts.partSideBar.${compatabilityIssue}`) }}
       </p>
+    </div>
+    <div class="w3-panel w3-round-xlarge w3-light-grey">
+      <div class="w3-row">
+        <div class="w3-left">
+          <img
+            class="w3-margin"
+            src="../../assets/parts/supply.svg"
+            height="30"
+          />
+        </div>
+        <div class="w3-right">
+          <div class="w3-row">
+            <div class="w3-left">
+              <p
+                  class="w3-margin"
+                  v-if="selectedPowerSupply.max_power_w"
+               >
+                {{ requiredPower }}/{{ selectedPowerSupply.max_power_w }}
+              </p>
+              <p
+                  class="w3-margin"
+                  v-else
+               >
+                Nepasirinkta
+              </p>
+            </div>
+            <div class="w3-right">
+              <img
+                class="w3-margin"
+                src="../../assets/lighting.svg"
+                height="30"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
-      class="w3-panel w3-red"
-      v-if="showCpuRandomAccessMemoryCapacityMessage"
-    >
-      <h2>
-        {{ $t('components.parts.partSideBar.attentionHeader') }}
-      </h2>
-      <p>
-        {{
-          $t(
-            'components.parts.partSideBar.cpuRandomAccessMemoryCapacityMessage'
-          )
-        }}
-      </p>
-    </div>
-    <div class="w3-panel w3-red" v-if="showMbRandomAccessMemoryMismatchMessage">
-      <h2>
-        {{ $t('components.parts.partSideBar.attentionHeader') }}
-      </h2>
-      <p>
-        {{
-          $t('components.parts.partSideBar.mbRandomAccessMemoryMismatchMessage')
-        }}
-      </p>
-    </div>
-    <div class="w3-panel w3-red" v-if="showMbRandomAccessMemoryCapacityMessage">
-      <h2>
-        {{ $t('components.parts.partSideBar.attentionHeader') }}
-      </h2>
-      <p>
-        {{
-          $t('components.parts.partSideBar.mbRandomAccessMemoryCapacityMessage')
-        }}
-      </p>
-    </div>
-    <div class="w3-panel w3-yellow" v-if="showRamDualChannelWarningMessage">
-      <h2>
-        {{ $t('components.parts.partSideBar.warningHeader') }}
-      </h2>
-      <p>
-        {{ $t('components.parts.partSideBar.ramDualChannelWarningMessage') }}
-      </p>
-    </div>
-    <div
-      class="w3-button w3-block w3-orange"
-      v-if="showOkMessage && showPsuCalculations"
+      class="w3-button w3-round-xlarge w3-block w3-orange"
+      v-if="showPsuCalculations"
       @click="generateUrl"
     >
       {{ $t('components.parts.partSideBar.generateUrl') }}
@@ -236,99 +197,24 @@ export default {
     }
   },
   computed: {
+    compatabilityIssues: () => store.state.compatabilityIssues,
+    requiredPower: () => store.state.requiredPower,
     selectedProcessor: () => store.state.selectedProcessor,
     selectedGraphicsCard: () => store.state.selectedGraphicsCard,
     selectedMotherboard: () => store.state.selectedMotherboard,
     selectedRandomAccessMemory: () => store.state.selectedRandomAccessMemory,
     selectedPowerSupply: () => store.state.selectedPowerSupply,
     selectedDrive: () => store.state.selectedDrive,
-    showCpuSocketeMissmatchMessage: function () {
-      if (this.selectedProcessor.sockets && this.selectedMotherboard.sockets) {
-        return (
-          this.selectedProcessor.sockets !== this.selectedMotherboard.sockets
-        )
-      } else {
-        return false
-      }
-    },
-    showCpuRandomAccessMemoryMismatchMessage: function () {
-      if (
-        this.selectedProcessor.ram_memory_types &&
-        this.selectedRandomAccessMemory.ram_memory_types
-      ) {
-        return (
-          this.selectedProcessor.ram_memory_types !==
-          this.selectedRandomAccessMemory.ram_memory_types
-        )
-      } else {
-        return false
-      }
-    },
-    showCpuRandomAccessMemoryCapacityMessage: function () {
-      if (
-        this.selectedProcessor.max_memory_supported &&
-        this.selectedRandomAccessMemory.total_capacity_gb
-      ) {
-        return (
-          this.selectedProcessor.max_memory_supported <
-          this.selectedRandomAccessMemory.total_capacity_gb
-        )
-      } else {
-        return false
-      }
-    },
-    showMbRandomAccessMemoryMismatchMessage: function () {
-      if (
-        this.selectedMotherboard.ram_memory_types &&
-        this.selectedRandomAccessMemory.ram_memory_types
-      ) {
-        return (
-          this.selectedMotherboard.ram_memory_types !==
-          this.selectedRandomAccessMemory.ram_memory_types
-        )
-      } else {
-        return false
-      }
-    },
-    showMbRandomAccessMemoryCapacityMessage: function () {
-      if (
-        this.selectedMotherboard.ram_memory_types &&
-        this.selectedRandomAccessMemory.ram_memory_types
-      ) {
-        return (
-          this.selectedMotherboard.max_memory_supported <
-          this.selectedRandomAccessMemory.total_capacity_gb
-        )
-      } else {
-        return false
-      }
-    },
-    showRamDualChannelWarningMessage: function () {
-      return this.selectedRandomAccessMemory.modules === 1
-    },
     showOkMessage: function () {
-      return (
-        !this.showCpuSocketeMissmatchMessage &&
-        !this.showCpuRandomAccessMemoryMismatchMessage &&
-        !this.showCpuRandomAccessMemoryCapacityMessage &&
-        !this.showMbRandomAccessMemoryMismatchMessage &&
-        !this.showMbRandomAccessMemoryCapacityMessage &&
-        !this.showRamDualChannelWarningMessage
-      )
+      return this.compatabilityIssues && this.compatabilityIssues.length === 0
     },
     showPsuCalculations: function () {
-      return this.selectedPowerSupply.max_power_w
-    },
-    requiredPower: function () {
-      return (
-        (this.selectedProcessor.thermal_design_power_w || 0) +
-        (this.selectedGraphicsCard.thermal_design_power_w || 0) +
-        (this.selectedMotherboard.model ? 150 : 0) +
-        (this.selectedRandomAccessMemory.modules
-          ? this.selectedRandomAccessMemory.modules * 15
-          : 0) +
-        (this.selectedDrive.model ? 30 : 0)
-      )
+      return this.selectedProcessor.id ||
+        this.selectedGraphicsCard.id ||
+        this.selectedMotherboard.id ||
+        this.selectedRandomAccessMemory.id ||
+        this.selectedPowerSupply.id ||
+        this.selectedDrive.id
     }
   }
 }

@@ -6,6 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    compatabilityIssues: [],
+    requiredPower: 0,
     selectedProcessor: {},
     selectedGraphicsCard: {},
     selectedMotherboard: {},
@@ -31,6 +33,12 @@ export default new Vuex.Store({
       state.currentPage = data.currentPage
       state.totalPages = data.totalPages
       state.parts = data.parts
+    },
+    setCompatabilityIssues (state, data) {
+      state.compatabilityIssues = data.compatability_issues
+    },
+    setRequiredPower (state, data) {
+      state.requiredPower = data.required_power
     },
     setBuilds (state, data) {
       state.filters = data.filters
@@ -119,6 +127,36 @@ export default new Vuex.Store({
           } else {
             commit('setParts', data)
           }
+        })
+    },
+    getCompatabilityIssues ({ commit }) {
+      axios
+        .get('http://127.0.0.1:5000/compatability', {
+          params: {
+            'mb_id': this.state.selectedMotherboard.id,
+            'cpu_id': this.state.selectedProcessor.id,
+            'ram_id': this.state.selectedRandomAccessMemory.id,
+          }
+        })
+        .then(r => r.data)
+        .then(data => {
+          commit('setCompatabilityIssues', data)
+        })
+    },
+    getCalculatedPowerUsage ({ commit }) {
+      axios
+        .get('http://127.0.0.1:5000/calculate_required_power', {
+          params: {
+            'mb_id': this.state.selectedMotherboard.id,
+            'cpu_id': this.state.selectedProcessor.id,
+            'ram_id': this.state.selectedRandomAccessMemory.id,
+            "drive_id": this.state.selectedDrive.id,
+            "gpu_id": this.state.selectedGraphicsCard.id
+          }
+        })
+        .then(r => r.data)
+        .then(data => {
+          commit('setRequiredPower', data)
         })
     },
     loadRecommendedBuilds ({ commit }, payload) {

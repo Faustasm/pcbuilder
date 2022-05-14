@@ -13,7 +13,6 @@
     },
     "common": {
       "FilterSideBar": {
-        "title": "Filtrai",
         "applyFilters": "Naudoti filtrus",
         "clearFilters": "Išvalyti filtrus"
       },
@@ -116,6 +115,7 @@
         "power_supplies": "Maitinimo blokai"
       },
       "partSideBar": {
+        "okHeader": "Ok!",
         "attentionHeader": "Dėmesio!",
         "warningHeader": "Perspėjimas",
         "okMessage": "Suderinamumo problemų nerasta.",

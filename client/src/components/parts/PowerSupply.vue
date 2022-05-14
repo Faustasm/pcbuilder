@@ -78,6 +78,7 @@ export default {
     },
     clear () {
       this.$store.dispatch('clearSelectedPowerSupply')
+      this.$store.dispatch('getCalculatedPowerUsage')
     },
     getProducts () {
       const payload = {
