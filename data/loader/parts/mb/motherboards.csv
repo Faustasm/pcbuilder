@@ -1,4 +1,4 @@
-id,brand_id,Model,socket_id,chipset_id,form_factor_id,memory_type_id,max_memory_supported,memory_slots,image_url
+id,brand_id,Model,socket_id,chipset_id,form_factor_id,memory_type_id,max_memory_supported_gb,memory_slots,image_url
 1,5,MAXIMUS XIII HERO,1,1,1,2,128,4,1
 2,5,STRIX Z590-E GAMING WIFI,1,1,1,2,128,4,2
 3,3,Z390-A PRO,3,2,1,2,128,4,3

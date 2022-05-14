@@ -1,4 +1,4 @@
-id,brand_id,series_id,model,memory_type_id,timing,cas_latency,voltage,transfer_rate_mb,speed,modules,module_capacity_gb,total_capacity_gb,image_url
+id,brand_id,series_id,model,memory_type_id,timing,cas_latency,voltage,transfer_rate_mb_s,speed_mhz,modules,module_capacity_gb,total_capacity_gb,image_url
 1,10,1,CMK16GX4M2D3600C18R,2,18-22-22-42,18,1.35,28800,3600,2,8,16,1
 2,11,2,F4-3600C19D-16GVRB,2,19-20-20-40,19,1.35,28800,3600,2,8,16,2
 3,10,3,CMW16GX4M2C3200C16W,2,16-18-18-36,16,1.35,25600,3200,2,8,16,3

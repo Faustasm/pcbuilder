@@ -22,8 +22,8 @@ CREATE TABLE "processors" (
   "number_of_cores" int NOT NULL,
   "number_of_threads" int NOT NULL,
   "memory_type_id" int NOT NULL,
-  "max_memory_supported" int NOT NULL,
-  "max_memory_speed" int NOT NULL,
+  "max_memory_supported_gb" int NOT NULL,
+  "max_memory_speed_mhz" int NOT NULL,
   "operating_frequency_mhz" float NOT NULL,
   "turbo_frequency_mhz" float NOT NULL,
   "thermal_design_power_w" int NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE "graphics_cards" (
   "memory_type_id" int NOT NULL,
   "memory_size_gb" int NOT NULL,
   "thermal_design_power_w" int NOT NULL,
-  "slot_width" int NOT NULL,
+  "slot_width_inches" int NOT NULL,
   "interface_id" int NOT NULL,
   "image_url" varchar NOT NULL
 );
@@ -138,7 +138,7 @@ CREATE TABLE "motherboards" (
   "chipset_id" int NOT NULL,
   "form_factor_id" int NOT NULL,
   "memory_type_id" int NOT NULL,
-  "max_memory_supported" int NOT NULL,
+  "max_memory_supported_gb" int NOT NULL,
   "memory_slots" int NOT NULL,
   "image_url" varchar NOT NULL
 );
@@ -224,8 +224,8 @@ CREATE TABLE "random_access_memory" (
   "timing" varchar NOT NULL,
   "cas_latency" int NOT NULL,
   "voltage" float NOT NULL,
-  "transfer_rate_mb" int NOT NULL,
-  "speed" int NOT NULL,
+  "transfer_rate_mb_s" int NOT NULL,
+  "speed_mhz" int NOT NULL,
   "modules" int NOT NULL,
   "module_capacity_gb" int NOT NULL,
   "total_capacity_gb" int NOT NULL,

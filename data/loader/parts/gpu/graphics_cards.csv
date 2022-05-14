@@ -1,4 +1,4 @@
-id,brand_id,name,model,chipset_manufacturer_id,memory_type_id,memory_size_gb,thermal_design_power_w,slot_width,interface_id,image_url
+id,brand_id,name,model,chipset_manufacturer_id,memory_type_id,memory_size_gb,thermal_design_power_w,slot_width_inches,interface_id,image_url
 1,4,GeForce GTX 1660 Super OC,GV-N166SOC-6GD,2,1,6,120,2,1,1
 2,4,GeForce RTX 2060,GV-N2060OC-6GD,2,1,6,160,2,1,2
 3,5,PHOENIX GTX 1050 Ti,PH-GTX1050TI-4G,2,2,4,75,2,1,3
