@@ -79,7 +79,6 @@ export default {
       this.applyFilters()
     },
     changeLanguage: function (locale) {
-      console.log('I get called')
       this.$root.$i18n.locale = locale
     }
   }
