@@ -26,8 +26,8 @@ docker-compose up -d
 
 4. Load database dump
 ```
-docker cp pcdb_test.tar pcbuilder-pcbuilder_db-1:/pcdb_test.tar
-docker exec -i pcbuilder-pcbuilder_db-1 pg_restore -U testuser -v -d pcdb_test pcdb_test.tar
+docker cp pcdb_test.tar pcbuilder_db:/pcdb_test.tar
+docker exec -i pcbuilder_db pg_restore -U testuser -v -d pcdb_test pcdb_test.tar
 ```
 
 5. Open localhost:8081

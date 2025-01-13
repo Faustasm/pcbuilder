@@ -7,7 +7,7 @@ db_creds = {
     "name": "pcdb_test",
     "user": "testuser",
     "password": "qwerty",
-    "host": "pcbuilder-pcbuilder_db-1",
+    "host": "pcbuilder_db",
     "port": 5432,
 }
 db_uri = "postgresql+psycopg2://{}:{}@{}:{}/{}".format(
