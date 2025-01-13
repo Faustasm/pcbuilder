@@ -207,5 +207,8 @@
     "about_content_tech_stack": "Postgres, flask, vue.js, docker, vue-i18n, axios, w3css.",
     "about_content_source_code": "Source code:",
     "contacts_email": "Email"
+  },
+  "clipboard": {
+    "url_copied": "Url copied to clipboard"
   }
 }

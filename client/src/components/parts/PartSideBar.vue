@@ -154,7 +154,7 @@ export default {
   },
   methods: {
     generateUrl () {
-      let baseUrl = 'https://2db9cdf660ac.ngrok.app?'
+      let baseUrl = 'http://localhost:8081?'
       if (this.selectedProcessor && this.selectedProcessor.id) {
         baseUrl += `cpu=${this.selectedProcessor.id}`
       }
@@ -177,7 +177,7 @@ export default {
         baseUrl += `&psu=${this.selectedPowerSupply.id}`
       }
       navigator.clipboard.writeText(baseUrl)
-      alert('Nuoroda nukopijuota')
+      alert(this.$t('clipboard.url_copied'))
     }
   },
   computed: {

@@ -207,5 +207,8 @@
     "about_content_tech_stack": "Postgres, flask, vue.js, docker, vue-i18n, axios, w3css.",
     "about_content_source_code": "Kodas:",
     "contacts_email": "El.paštas"
+  },
+  "clipboard": {
+    "url_copied": "Nuoroda nukopijuota"
   }
 }
