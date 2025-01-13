@@ -1,9 +1,0 @@
-id,name,version
-1,PCI Express x16,3
-2,PCI Express x8,3
-3,PCI Express x4,3
-4,PCI Express x1,3
-5,PCI Express x16,4
-6,SATA,3
-7,SATA Express,
-8,USB,3.1

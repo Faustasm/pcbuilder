@@ -1,11 +1,14 @@
-region: eu
-authtoken: <authtoken>
 tunnels:
-  server:
-    bind-tls: false
-    proto: http
-    addr: 5000
-  client:
-    bind-tls: false
-    proto: http
-    addr: 8080
+    server:
+        proto: http
+        addr: http://127.0.0.1:5000
+        host_header: rewrite
+    client:
+        proto: http
+        addr: http://127.0.0.1:8081
+        url: pcdb.ngrok.io
+        host_header: rewrite
+version: "3"
+agent:
+    connect_url: connect.eu.ngrok-agent.com:443
+    authtoken: <change_me>

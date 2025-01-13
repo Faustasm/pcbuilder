@@ -1,9 +1,0 @@
-id,motherboard_id,interface_id,quantity,type
-1,1,1,2,CPU
-2,1,4,3,PCH
-3,1,1,1,PCH
-4,1,6,6,4 ports shared with SATA-E
-5,1,7,2,Hard drives only
-6,1,8,1,Gen 2 (black) USB Type-C
-7,1,8,1,Gen 2 (red) Type-A
-8,1,8,2,Gen 1 (blue)

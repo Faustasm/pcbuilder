@@ -41,28 +41,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 import store from '../../store'
 export default {
   name: 'MotherBoard',
   data () {
     return {
       products: []
-    }
-  },
-  async created () {
-    if (this.selectedMotherboard.id && this.products.length === 0) {
-      await this.getProducts()
-    }
-  },
-  watch: {
-    selectedMotherboard (newSelectedMotherboard, oldSelectedMotherboard) {
-      if (
-        newSelectedMotherboard != oldSelectedMotherboard &&
-        this.selectedMotherboard.id
-      ) {
-        this.getProducts()
-      }
     }
   },
   computed: {
@@ -80,22 +64,6 @@ export default {
       this.$store.dispatch('clearSelectedMotherboard')
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'motherboards',
-          part_id: this.selectedMotherboard.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

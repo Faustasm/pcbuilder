@@ -5,9 +5,9 @@ default_page = 1
 # Database
 db_creds = {
     "name": "pcdb_test",
-    "user": "postgres",
-    "password": "123",
-    "host": "localhost",
+    "user": "testuser",
+    "password": "qwerty",
+    "host": "pcbuilder-pcbuilder_db-1",
     "port": 5432,
 }
 db_uri = "postgresql+psycopg2://{}:{}@{}:{}/{}".format(

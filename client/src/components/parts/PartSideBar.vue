@@ -36,7 +36,7 @@
                 {{ requiredPower }}/{{ selectedPowerSupply.max_power_w }}
               </p>
               <p class="w3-margin" v-else>
-                Nepasirinkta
+                {{ $t('components.builds.build.powerSupplyNotSelected') }}
               </p>
             </div>
             <div class="w3-right">
@@ -154,7 +154,7 @@ export default {
   },
   methods: {
     generateUrl () {
-      let baseUrl = 'http://localhost:8080?'
+      let baseUrl = 'https://2db9cdf660ac.ngrok.app?'
       if (this.selectedProcessor && this.selectedProcessor.id) {
         baseUrl += `cpu=${this.selectedProcessor.id}`
       }
@@ -176,18 +176,8 @@ export default {
       if (this.selectedPowerSupply && this.selectedPowerSupply.id) {
         baseUrl += `&psu=${this.selectedPowerSupply.id}`
       }
-      let payload = {
-        processor_id: this.selectedProcessor.id,
-        graphics_card_id: this.selectedGraphicsCard.id,
-        motherboard_id: this.selectedMotherboard.id,
-        drive_id: this.selectedDrive.id,
-        random_access_memory_id: this.selectedRandomAccessMemory.id,
-        power_supply_id: this.selectedPowerSupply.id
-      }
-      this.$store.dispatch('createBuild', payload)
       navigator.clipboard.writeText(baseUrl)
       alert('Nuoroda nukopijuota')
-      this.$store.dispatch('loadBuilds')
     }
   },
   computed: {

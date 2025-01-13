@@ -5,16 +5,6 @@ from flask_cors import CORS
 from config import db_uri
 from actions import (
     GetParts,
-    GetBuilds,
-    GetVendors,
-    GetProducts,
-    CreateNewBuild,
-    CreateNewVendor,
-    CreateNewProduct,
-    UpdateVendor,
-    DeleteVendor,
-    UpdateProduct,
-    DeleteProduct,
     CheckPartCompatability,
     CalculateRequiredPower,
 )
@@ -43,80 +33,6 @@ def parts(part_name):
         filters = args
         action = GetParts()
         return jsonify(action.perform(db, page, filters, part_name)), 200
-    return 405
-
-
-@app.route("/builds", methods=["GET", "POST"])
-def builds():
-    method = request.method
-    if method == "GET":
-        args = dict(request.args)
-        page = args.pop("page") if "page" in args else 1
-        by_popularity = args.pop("by_popularity") if "by_popularity" in args else False
-        action = GetBuilds()
-        filters = args
-        return jsonify(action.perform(db, page, filters, by_popularity)), 200
-    if method == "POST":
-        data = request.json.get("payload")
-        action = CreateNewBuild()
-        action.perform(db, data)
-        return "success", 201
-    return 405
-
-
-@app.route("/vendors", methods=["GET", "POST", "PUT", "DELETE"])
-def vendors():
-    method = request.method
-    if method == "GET":
-        args = dict(request.args)
-        page = args.pop("page") if "page" in args else 1
-        filters = args
-        action = GetVendors()
-        return jsonify(action.perform(db, page, filters)), 200
-    if method == "POST":
-        data = request.json.get("payload")
-        action = CreateNewVendor()
-        action.perform(db, data)
-        return "success", 201
-    if method == "PUT":
-        args = dict(request.args)
-        vendor_id = args.get("id")
-        data = request.json.get("payload")
-        action = UpdateVendor()
-        return jsonify(action.perform(db, data, vendor_id)), 200
-    if method == "DELETE":
-        args = dict(request.args)
-        vendor_id = args.get("id")
-        data = request.json.get("payload")
-        action = DeleteVendor()
-        return jsonify(action.perform(db, data, vendor_id)), 200
-    return 405
-
-
-@app.route("/products", methods=["GET", "POST", "PUT", "DELETE"])
-def products():
-    method = request.method
-    if method == "GET":
-        args = dict(request.args)
-        page = args.pop("page") if "page" in args else 1
-        filters = args
-        action = GetProducts()
-        return jsonify(action.perform(db, page, filters)), 200
-    if method == "POST":
-        data = request.json.get("payload")
-        action = CreateNewProduct()
-        return jsonify(action.perform(db, data)), 200
-    if method == "PUT":
-        args = dict(request.args)
-        product_id = args.get("id")
-        data = request.json.get("payload")
-        action = UpdateProduct()
-        return jsonify(action.perform(db, data)), 200
-    if method == "DELETE":
-        args = dict(request.args)
-        product_id = args.get("id")
-        action = DeleteProduct()
-        return jsonify(action.perform(db, data)), 200
     return 405
 
 

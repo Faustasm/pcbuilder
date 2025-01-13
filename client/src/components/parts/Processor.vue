@@ -41,28 +41,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 import store from '../../store'
 export default {
   name: 'Processor',
   data () {
     return {
       products: []
-    }
-  },
-  async created () {
-    if (this.selectedProcessor.id && this.products.length === 0) {
-      await this.getProducts()
-    }
-  },
-  watch: {
-    selectedProcessor (newSelectedProcessor, oldSelectedProcessor) {
-      if (
-        newSelectedProcessor != oldSelectedProcessor &&
-        this.selectedProcessor.id
-      ) {
-        this.getProducts()
-      }
     }
   },
   computed: {
@@ -80,22 +64,6 @@ export default {
       this.$store.dispatch('clearSelectedProcessor')
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'processors',
-          part_id: this.selectedProcessor.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

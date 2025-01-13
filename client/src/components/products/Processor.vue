@@ -84,12 +84,6 @@
             }}:
             {{ processorData.number_of_threads }}
           </p>
-          <p>
-            {{ $t('components.products.motherboard.description.pricesLabel') }}:
-          </p>
-          <p v-for="product in products" :key="product">
-            {{ product.vendors }} : {{ product.price }}
-          </p>
         </div>
       </div>
     </div>
@@ -115,7 +109,7 @@ export default {
   async created () {
     if (this.id) {
       await axios
-        .get('http://127.0.0.1:5000/parts/processors', {
+        .get(this.$store.state.api_url + '/parts/processors', {
           params: { id: this.id }
         })
         .then(r => r.data)
@@ -125,35 +119,12 @@ export default {
     } else {
       this.processorData = this.processor
     }
-    this.getProducts()
   },
   methods: {
     select () {
-      const payload = {
-        filters: {
-          processor_id: this.processorData.id
-        }
-      }
       this.$store.dispatch('setSelectedProcessor', this.processorData)
-      this.$store.dispatch('loadRecommendedBuilds', payload)
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'processors',
-          part_id: this.processorData.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

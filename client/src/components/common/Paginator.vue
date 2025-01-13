@@ -56,8 +56,6 @@ export default {
       if (this.$route.name === 'Builder') {
         payload.selectedPart = this.selectedPart.endpoint
         this.$store.dispatch('loadParts', payload)
-      } else {
-        this.$store.dispatch('loadBuilds', payload)
       }
     }
   }

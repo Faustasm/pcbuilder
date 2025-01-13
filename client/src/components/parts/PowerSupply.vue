@@ -41,18 +41,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 import store from '../../store'
 export default {
   name: 'PowerSupply',
   data () {
     return {
       products: []
-    }
-  },
-  async created () {
-    if (this.selectedPowerSupply.id && this.products.length === 0) {
-      await this.getProducts()
     }
   },
   watch: {
@@ -80,22 +74,6 @@ export default {
       this.$store.dispatch('clearSelectedPowerSupply')
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'power_supplies',
-          part_id: this.selectedPowerSupply.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

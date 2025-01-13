@@ -40,25 +40,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 import store from '../../store'
 export default {
   name: 'Drive',
   data () {
     return {
       products: []
-    }
-  },
-  async created () {
-    if (this.selectedDrive.id && this.products.length === 0) {
-      await this.getProducts()
-    }
-  },
-  watch: {
-    selectedDrive (newSelectedDrive, oldSelectedDrive) {
-      if (newSelectedDrive != oldSelectedDrive && this.selectedDrive.id) {
-        this.getProducts()
-      }
     }
   },
   computed: {
@@ -76,22 +63,6 @@ export default {
       this.$store.dispatch('clearSelectedDrive')
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'drives',
-          part_id: this.selectedDrive.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

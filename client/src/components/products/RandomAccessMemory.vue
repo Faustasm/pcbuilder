@@ -80,16 +80,6 @@
             }}:
             {{ randomAccessMemoryData.total_capacity_gb }}
           </p>
-          <p>
-            {{
-              $t(
-                'components.products.randomAccessMemory.description.pricesLabel'
-              )
-            }}:
-          </p>
-          <p v-for="product in products" :key="product">
-            {{ product.vendors }} : {{ product.price }}
-          </p>
         </div>
       </div>
     </div>
@@ -118,7 +108,7 @@ export default {
   async created () {
     if (this.id) {
       await axios
-        .get('http://127.0.0.1:5000/parts/random_access_memory', {
+        .get(this.$store.state.api_url + '/parts/random_access_memory', {
           params: { id: this.id }
         })
         .then(r => r.data)
@@ -128,39 +118,15 @@ export default {
     } else {
       this.randomAccessMemoryData = this.randomAccessMemory
     }
-    this.getProducts()
   },
   methods: {
     select () {
-      const payload = {
-        filters: {
-          random_access_memory_id: this.randomAccessMemoryData.id,
-          by_popularity: true
-        }
-      }
       this.$store.dispatch(
         'setSelectedRandomAccessMemory',
         this.randomAccessMemoryData
       )
-      this.$store.dispatch('loadRecommendedBuilds', payload)
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'processors',
-          part_id: this.randomAccessMemoryData.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

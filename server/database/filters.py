@@ -7,7 +7,6 @@ def get_resource_filters(
 ):
     filters = []
     resource_name = resource_table.name
-    resources_to_query = []
     shared_parent_table_names = resource_full_join_map.get("shared")
     individual_parent_table_names = resource_full_join_map.get(resource_name)
 

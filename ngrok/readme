@@ -1,2 +1,2 @@
 To start ngrok process:
-./ngrok start --all -config=config.yml
+./ngrok start --all --config=config.yml

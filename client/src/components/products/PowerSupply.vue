@@ -76,7 +76,7 @@ export default {
   async created () {
     if (this.id) {
       await axios
-        .get('http://127.0.0.1:5000/parts/power_supplies', {
+        .get(this.$store.state.api_url + '/parts/power_supplies', {
           params: { id: this.id }
         })
         .then(r => r.data)
@@ -86,34 +86,11 @@ export default {
     } else {
       this.powerSupplyData = this.powerSupply
     }
-    this.getProducts()
   },
   methods: {
     select () {
-      const payload = {
-        filters: {
-          power_supply_id: this.powerSupplyData.id
-        }
-      }
       this.$store.dispatch('setSelectedPowerSupply', this.powerSupplyData)
-      this.$store.dispatch('loadRecommendedBuilds', payload)
       this.$store.dispatch('getCompatabilityIssues')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'power_supplies',
-          part_id: this.powerSupplyData.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

@@ -167,17 +167,7 @@ export default {
         name: 'GeForce GTX 1660 Super OC ',
         model: 'GV-N166SOC-6GD',
         gpu_memory_types: 'GDDR6',
-        memory_size_gb: '6',
-        prices: [
-          {
-            vendor: '3a.lt',
-            price: '$202.00'
-          },
-          {
-            vendor: 'vgtushop.lt',
-            price: '212.00'
-          }
-        ]
+        memory_size_gb: '6'
       },
       graphicsCardTwo: {
         image_url: '2',
@@ -185,16 +175,6 @@ export default {
         model: 'GV-N2060OC-6GD',
         gpu_memory_types: 'GDDR6',
         memory_size_gb: '6',
-        prices: [
-          {
-            vendor: '3a.lt',
-            price: '$203.00'
-          },
-          {
-            vendor: 'vgtushop.lt',
-            price: '213.00'
-          }
-        ]
       }
     }
   },

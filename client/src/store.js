@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    api_url: 'http://127.0.0.1:5000',
     compatabilityIssues: [],
     requiredPower: 0,
     selectedProcessor: {},
@@ -96,7 +97,7 @@ export default new Vuex.Store({
     loadParts ({ commit }, payload) {
       commit('setSelectedFilters', payload.filters)
       axios
-        .get('http://127.0.0.1:5000/parts/' + payload.selectedPart, {
+        .get(this.state.api_url + '/parts/' + payload.selectedPart, {
           params: payload.filters
         })
         .then(r => r.data)
@@ -131,7 +132,7 @@ export default new Vuex.Store({
     },
     getCompatabilityIssues ({ commit }) {
       axios
-        .get('http://127.0.0.1:5000/compatability', {
+        .get(this.state.api_url + '/compatability', {
           params: {
             mb_id: this.state.selectedMotherboard.id,
             cpu_id: this.state.selectedProcessor.id,
@@ -145,7 +146,7 @@ export default new Vuex.Store({
     },
     getCalculatedPowerUsage ({ commit }) {
       axios
-        .get('http://127.0.0.1:5000/calculate_required_power', {
+        .get(this.state.api_url + '/calculate_required_power', {
           params: {
             mb_id: this.state.selectedMotherboard.id,
             cpu_id: this.state.selectedProcessor.id,
@@ -157,37 +158,6 @@ export default new Vuex.Store({
         .then(r => r.data)
         .then(data => {
           commit('setRequiredPower', data)
-        })
-    },
-    loadRecommendedBuilds ({ commit }, payload) {
-      axios
-        .get('http://127.0.0.1:5000/builds', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          commit('setRecommendedBuild', data)
-        })
-    },
-    loadBuilds ({ commit }, payload) {
-      commit('setSelectedFilters', payload.filters)
-      axios
-        .get('http://127.0.0.1:5000/builds', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          commit('setBuilds', data)
-        })
-    },
-    createBuild ({ commit }, payload) {
-      axios
-        .post('http://127.0.0.1:5000/builds', {
-          payload: payload
-        })
-        .then(r => r.data)
-        .then(data => {
-          commit('setGeneratedBuild', data)
         })
     },
     setSelectedProcessor ({ commit }, processor) {

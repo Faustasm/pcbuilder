@@ -42,14 +42,6 @@
             {{ $t('components.products.graphicsCard.description.memorySize') }}:
             {{ graphicsCardData.memory_size_gb }}
           </p>
-          <p>
-            {{
-              $t('components.products.graphicsCard.description.pricesLabel')
-            }}:
-          </p>
-          <p v-for="product in products" :key="product">
-            {{ product.vendors }} : {{ product.price }}
-          </p>
         </div>
       </div>
     </div>
@@ -75,7 +67,7 @@ export default {
   async created () {
     if (this.id) {
       await axios
-        .get('http://127.0.0.1:5000/parts/graphics_cards', {
+        .get(this.$store.state.api_url + '/parts/graphics_cards', {
           params: { id: this.id }
         })
         .then(r => r.data)
@@ -85,35 +77,12 @@ export default {
     } else {
       this.graphicsCardData = this.graphicsCard
     }
-    this.getProducts()
   },
   methods: {
     select () {
-      const payload = {
-        filters: {
-          graphics_card_id: this.graphicsCardData.id
-        }
-      }
       this.$store.dispatch('setSelectedGraphicsCard', this.graphicsCardData)
-      this.$store.dispatch('loadRecommendedBuilds', payload)
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'graphics_cards',
-          part_id: this.graphicsCardData.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

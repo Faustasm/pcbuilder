@@ -41,31 +41,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 import store from '../../store'
 export default {
   name: 'RandomAccessMemory',
   data () {
     return {
       products: []
-    }
-  },
-  async created () {
-    if (this.selectedRandomAccessMemory.id && this.products.length === 0) {
-      await this.getProducts()
-    }
-  },
-  watch: {
-    selectedGraphicsCard (
-      newSelectedRandomAccessMemory,
-      oldSelectedRandomAccessMemory
-    ) {
-      if (
-        newSelectedRandomAccessMemory != oldSelectedRandomAccessMemory &&
-        this.selectedRandomAccessMemory.id
-      ) {
-        this.getProducts()
-      }
     }
   },
   computed: {
@@ -83,22 +64,6 @@ export default {
       this.$store.dispatch('clearSelectedRandomAccessMemory')
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'random_access_memory',
-          part_id: this.selectedRandomAccessMemory.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

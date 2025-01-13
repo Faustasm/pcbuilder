@@ -50,10 +50,6 @@
             {{ $t('components.products.drive.description.writeSpeed') }}:
             {{ driveData.max_write_mb_s }}
           </p>
-          <p>{{ $t('components.products.drive.description.pricesLabel') }}:</p>
-          <p v-for="product in products" :key="product">
-            {{ product.vendors }} : {{ product.price }}
-          </p>
         </div>
       </div>
     </div>
@@ -79,7 +75,7 @@ export default {
   async created () {
     if (this.id) {
       await axios
-        .get('http://127.0.0.1:5000/parts/drives', {
+        .get(this.$store.state.api_url + '/parts/drives', {
           params: { id: this.id }
         })
         .then(r => r.data)
@@ -89,35 +85,12 @@ export default {
     } else {
       this.driveData = this.drive
     }
-    this.getProducts()
   },
   methods: {
     select () {
-      const payload = {
-        filters: {
-          drive_id: this.driveData.id
-        }
-      }
       this.$store.dispatch('setSelectedDrive', this.driveData)
-      this.$store.dispatch('loadRecommendedBuilds', payload)
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'drives',
-          part_id: this.driveData.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

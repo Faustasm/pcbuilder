@@ -22,8 +22,8 @@ const router = new VueRouter({
 })
 
 export const i18n = new VueI18n({
-  locale: 'lt',
-  fallbackLocale: 'lt',
+  locale: 'gb',
+  fallbackLocale: 'gb',
   messages
 })
 new Vue({

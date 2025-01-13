@@ -41,28 +41,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 import store from '../../store'
 export default {
   name: 'GraphicsCard',
   data () {
     return {
       products: []
-    }
-  },
-  async created () {
-    if (this.selectedGraphicsCard.id && this.products.length === 0) {
-      await this.getProducts()
-    }
-  },
-  watch: {
-    selectedGraphicsCard (newSelectedGraphicsCard, oldSelectedGraphicsCard) {
-      if (
-        newSelectedGraphicsCard != oldSelectedGraphicsCard &&
-        this.selectedGraphicsCard.id
-      ) {
-        this.getProducts()
-      }
     }
   },
   computed: {
@@ -80,22 +64,6 @@ export default {
       this.$store.dispatch('clearSelectedGraphicsCard')
       this.$store.dispatch('getCompatabilityIssues')
       this.$store.dispatch('getCalculatedPowerUsage')
-    },
-    getProducts () {
-      const payload = {
-        filters: {
-          type: 'graphics_cards',
-          part_id: this.selectedGraphicsCard.id
-        }
-      }
-      axios
-        .get('http://127.0.0.1:5000/products', {
-          params: payload.filters
-        })
-        .then(r => r.data)
-        .then(data => {
-          this.products = data.products
-        })
     }
   }
 }

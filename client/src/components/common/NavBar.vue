@@ -1,6 +1,6 @@
 <template>
   <div class="w3-row">
-    <div class="w3-col s12 m2 l2 w3-center w3-win8-orange" style="height:130px">
+    <div class="w3-col s12 m4 l3 w3-center w3-win8-orange" style="height:130px">
       <img
         class="w3-margin-top"
         src="../../assets/navbar_icons/pc-tower.svg"
@@ -12,7 +12,7 @@
     </div>
     <router-link to="/">
       <div
-        class="w3-col s12 m2 l2 w3-center w3-black"
+        class="w3-col s12 m4 l3 w3-center w3-black"
         style="height:130px"
         @click="setActiveTab(0)"
         @mouseenter="addClass"
@@ -28,45 +28,9 @@
         </p>
       </div>
     </router-link>
-    <router-link to="/recommendation-system">
-      <div
-        class="w3-col s12 m2 l2 w3-center w3-black"
-        style="height:130px"
-        @click="setActiveTab(1)"
-        @mouseenter="addClass"
-        @mouseleave="removeClass"
-      >
-        <img
-          class="w3-margin-top"
-          src="../../assets/navbar_icons/rec.svg"
-          height="50"
-        />
-        <p class="w3-text-white">
-          {{ $t('components.common.navBar.recommendationSystem') }}
-        </p>
-      </div>
-    </router-link>
-    <router-link to="/api">
-      <div
-        class="w3-col s12 m2 l2 w3-center w3-black"
-        style="height:130px"
-        @click="setActiveTab(2)"
-        @mouseenter="addClass"
-        @mouseleave="removeClass"
-      >
-        <img
-          class="w3-margin-top"
-          src="../../assets/navbar_icons/api.svg"
-          height="50"
-        />
-        <p class="w3-text-white">
-          {{ $t('components.common.navBar.api') }}
-        </p>
-      </div>
-    </router-link>
     <router-link to="/about">
       <div
-        class="w3-col s12 m2 l2 w3-center w3-black"
+        class="w3-col s12 m4 l3 w3-center w3-black"
         style="height:130px"
         @click="setActiveTab(3)"
         @mouseenter="addClass"
@@ -84,7 +48,7 @@
     </router-link>
     <router-link to="/contacts">
       <div
-        class="w3-col s12 m2 l2 w3-center w3-black"
+        class="w3-col s12 m4 l3 w3-center w3-black"
         style="height:130px"
         @click="setActiveTab(4)"
         @mouseenter="addClass"

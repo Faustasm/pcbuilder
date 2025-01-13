@@ -8,7 +8,8 @@
         "motherboardName": "Motherboard",
         "driveName": "Drive",
         "powerSupplyName": "Power supply",
-        "randomAccessMemoryName": "Random access memory"
+        "randomAccessMemoryName": "Random access memory",
+        "powerSupplyNotSelected": "Not selected"
       }
     },
     "common": {
@@ -37,13 +38,18 @@
         "max_memory_supported": "Max memory supported",
         "max_memory_speed": "Max memory speed",
         "operating_frequency_mhz": "Operating frequency",
+        "max_memory_supported_gb": "Max supported memory in gigabytes",
+        "max_memory_speed_mhz": "Max memory frequenzy (mhz)",
         "turbo_frequency_mhz": "Turbo frequency",
         "thermal_design_power_w": "TDP",
         "cooling_device_included": "Includes cooler",
         "integrated_graphics_id": "Integrated graphics card",
         "chipset_manufacturer_id": "Chipset manufacturer",
-        "memory_size_gb": "Atminties kiekis",
+        "memory_size_gb": "Memory size in gb",
         "slot_width": "Width",
+        "slot_width_inches": "Slot width in inches",
+        "transfer_rate_mb_s": "Transfer rate mb/s",
+        "speed_mhz": "Frequency mhz",
         "interface_id": "Interface",
         "drive_type_id": "Drive type",
         "form_factor_id": "Form factor",
@@ -66,7 +72,7 @@
         "modularity_id": "Modularity"
       },
       "navBar": {
-        "domainName": "Pcdb.tech",
+        "domainName": "Pcdb",
         "home": "Home",
         "recommendationSystem": "Recommendation system",
         "api": "API",
@@ -137,8 +143,7 @@
           "formFactor": "Form factor (inches)",
           "capacity": "Capacity (GB)",
           "readSpeed": "Read speed mb/s",
-          "writeSpeed": "Write speed mb/s",
-          "pricesLabel": "Prices"
+          "writeSpeed": "Write speed mb/s"
         }
       },
       "graphicsCard": {
@@ -147,16 +152,14 @@
           "name": "Name",
           "model": "Model",
           "memoryType": "Memory type",
-          "memorySize": "Memory size (GB)",
-          "pricesLabel": "Prices"
+          "memorySize": "Memory size (GB)"
         }
       },
       "motherboard": {
         "select": "Select",
         "description": {
           "model": "Model",
-          "socket": "Socket",
-          "pricesLabel": "Prices"
+          "socket": "Socket"
         }
       },
       "powerSupply": {
@@ -165,8 +168,7 @@
           "model": "Model",
           "maxPower": "Max power (W)",
           "energyEfficiency": "Energy efficiency",
-          "modularity": "Modularity",
-          "pricesLabel": "Prices"
+          "modularity": "Modularity"
         }
       },
       "processor": {
@@ -181,8 +183,7 @@
           "operatingFrequency": "Operating frequency (Ghz)",
           "turboFrequency": "Turbo frequency (Ghz)",
           "numberOfCores": "Cores",
-          "numberOfThreads": "Threads",
-          "pricesLabel": "Prices"
+          "numberOfThreads": "Threads"
         }
       },
       "randomAccessMemory": {
@@ -195,10 +196,16 @@
           "modules": "Modules",
           "speed": "Speed",
           "moduleCapacity": "Module capacity (GB)",
-          "capacity": "Capacity (GB)",
-          "pricesLabel": "Prices"
+          "capacity": "Capacity (GB)"
         }
       }
     }
+  },
+  "content": {
+    "about_content_description": "Simple tool that checks compatibility between computer parts created as a final project for university.",
+    "about_content_tech_stack_header": "Tech stack used:",
+    "about_content_tech_stack": "Postgres, flask, vue.js, docker, vue-i18n, axios, w3css.",
+    "about_content_source_code": "Source code:",
+    "contacts_email": "Email"
   }
 }

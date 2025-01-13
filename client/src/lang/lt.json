@@ -8,7 +8,8 @@
         "motherboardName": "Motininė plokštė",
         "driveName": "Diskas",
         "powerSupplyName": "Maitinimo blokas",
-        "randomAccessMemoryName": "Operatyvioji atmintis"
+        "randomAccessMemoryName": "Operatyvioji atmintis",
+        "powerSupplyNotSelected": "Nepasirinkta"
       }
     },
     "common": {
@@ -37,6 +38,8 @@
         "max_memory_supported": "Maksimali palaikoma atmintis",
         "max_memory_speed": "Maksimalus atminties greitis",
         "operating_frequency_mhz": "Procesoriaus dažnis",
+        "max_memory_supported_gb": "Maksimali atmintis (gb)",
+        "max_memory_speed_mhz": "Maksimalus atminties dažnis (mhz)",
         "turbo_frequency_mhz": "Procesoriaus turbo dažnis",
         "thermal_design_power_w": "Reikalinga galia (W)",
         "cooling_device_included": "Su aušintuvu",
@@ -44,6 +47,9 @@
         "chipset_manufacturer_id": "Lusto gamintojas",
         "memory_size_gb": "Atminties kiekis",
         "slot_width": "ilgis",
+        "slot_width_inches": "Ilgis coliais",
+        "transfer_rate_mb_s": "Greitis mb/s",
+        "speed_mhz": "Dažnis mhz",
         "interface_id": "Sąsaja",
         "drive_type_id": "Disko tipas",
         "form_factor_id": "Forma",
@@ -66,7 +72,7 @@
         "modularity_id": "Moduliarumas"
       },
       "navBar": {
-        "domainName": "Pcdb.lt",
+        "domainName": "Pcdb",
         "home": "Pradžia",
         "recommendationSystem": "Rekomendacijos sistema",
         "api": "API",
@@ -137,8 +143,7 @@
           "formFactor": "Dydis (coliai)",
           "capacity": "Talpa (GB)",
           "readSpeed": "Skaitymo greitis mb/s",
-          "writeSpeed": "Įrašymo greitis mb/s",
-          "pricesLabel": "Kainos"
+          "writeSpeed": "Įrašymo greitis mb/s"
         }
       },
       "graphicsCard": {
@@ -147,16 +152,14 @@
           "name": "Pavadinimas",
           "model": "Modelis",
           "memoryType": "Atminties tipas",
-          "memorySize": "Atminties kiekis (GB)",
-          "pricesLabel": "Kainos"
+          "memorySize": "Atminties kiekis (GB)"
         }
       },
       "motherboard": {
         "select": "Pasirinkti",
         "description": {
           "model": "Modelis",
-          "socket": "Jungtis",
-          "pricesLabel": "Kainos"
+          "socket": "Jungtis"
         }
       },
       "powerSupply": {
@@ -165,8 +168,7 @@
           "model": "Modelis",
           "maxPower": "Galia (W)",
           "energyEfficiency": "Energijos efektyvumas",
-          "modularity": "Moduliarumas",
-          "pricesLabel": "Kainos"
+          "modularity": "Moduliarumas"
         }
       },
       "processor": {
@@ -181,8 +183,7 @@
           "operatingFrequency": "Procesoriaus dažnis (Ghz)",
           "turboFrequency": "Procesoriaus turbo dažnis (Ghz)",
           "numberOfCores": "Branduoliai",
-          "numberOfThreads": "Gijos",
-          "pricesLabel": "Kainos"
+          "numberOfThreads": "Gijos"
         }
       },
       "randomAccessMemory": {
@@ -195,10 +196,16 @@
           "modules": "Moduliai",
           "speed": "Greitis",
           "moduleCapacity": "Modulio talpa (GB)",
-          "capacity": "Talpa (GB)",
-          "pricesLabel": "Kainos"
+          "capacity": "Talpa (GB)"
         }
       }
     }
+  },
+  "content": {
+    "about_content_description": "Paprastas įrankis komiuterio komponentų suderinamumui patikrinti, baigiamasis bakalauro darbas.",
+    "about_content_tech_stack_header": "Naudotos technologijos:",
+    "about_content_tech_stack": "Postgres, flask, vue.js, docker, vue-i18n, axios, w3css.",
+    "about_content_source_code": "Kodas:",
+    "contacts_email": "El.paštas"
   }
 }
