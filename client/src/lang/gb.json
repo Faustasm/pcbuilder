@@ -202,7 +202,7 @@
     }
   },
   "content": {
-    "about_content_description": "Simple tool that checks compatibility between computer parts created as a final project for university.",
+    "about_content_description": "Simple tool that checks compatibility between computer parts, created as a final project for university.",
     "about_content_tech_stack_header": "Tech stack used:",
     "about_content_tech_stack": "Postgres, flask, vue.js, docker, vue-i18n, axios, w3css.",
     "about_content_source_code": "Source code:",
