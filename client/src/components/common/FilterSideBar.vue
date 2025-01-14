@@ -54,7 +54,9 @@ export default {
     filterPayload: function () {
       let filterPayload = {}
       for (const filter in this.selectedFilters) {
-        filterPayload[filter] = this.selectedFilters[filter].id
+        if (this.selectedFilters[filter]) {
+          filterPayload[filter] = this.selectedFilters[filter].id
+        }
       }
       return filterPayload
     }
