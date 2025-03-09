@@ -4,6 +4,8 @@
 docker
 docker-compose
 ```
+### Screenshot
+![alt text](docs/demo.png)
 
 ### Full usage example
 
